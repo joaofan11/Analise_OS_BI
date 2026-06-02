@@ -1,0 +1,139 @@
+relationship 70b1a412-7458-46da-9cf9-a73d7e572346
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Defeitos.'Data deentrada'
+	toColumn: LocalDateTable_17cf9d63-dd26-429f-a3f8-47b5171ed835.Date
+
+relationship 44e48098-7999-485a-a33e-fd77459acaa1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Defeitos.Datafabricação
+	toColumn: LocalDateTable_b5c1010e-32be-4388-9735-9d4892276ae1.Date
+
+relationship 3857bd9e-4cef-4e09-a234-e4761bdb90e9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Defeitos.Datavenda
+	toColumn: LocalDateTable_bd030aa6-7ed3-42c8-a552-5adaa171c53b.Date
+
+relationship fc98b870-0b0c-4790-80c6-a97bb75a37c4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'QUERY - Conclusão BUR'.'DT ENTRADA'
+	toColumn: LocalDateTable_2f20629e-b314-45e0-b251-096397bd4296.Date
+
+relationship 3df331c7-c62b-4b38-b0be-c89a3af6022f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_4214d5e2-deb1-47a2-8225-602b698f2cb6.Date
+
+relationship 2a1da4a1-367e-7284-cf82-8ce1e3a01a79
+	fromColumn: Defeitos.'Data últimostatus'
+	toColumn: Calendario.Date
+
+relationship 5b61b7a4-0fbc-2888-b1bb-82eeec63d05b
+	fromColumn: 'QUERY - Conclusão BUR'.'DATA STATUS'
+	toColumn: Calendario.Date
+
+relationship ed121674-c2b7-5c38-a288-1cb9cd8cb006
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Defeitos.Referência
+	toColumn: OS_Geral.Referência
+
+relationship 1463cb56-ec2b-4084-1446-d8b978122523
+	fromColumn: OS_Geral.'Garantia Fora Estoque'
+	toColumn: Tipo_Garantia.Tipo_Garantia
+
+relationship 3466ba84-c824-cc78-6c1a-b26e897e0dbc
+	fromColumn: 'QUERY - Conclusão BUR'.SEGMENTACAO
+	toColumn: Tipo_Garantia.Tipo_Garantia
+
+relationship a63a49ce-ce53-7222-6c45-b859d0790f98
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OS_Geral.Referência
+	toColumn: 'QUERY - Conclusão BUR'.REFERENCIA
+
+relationship ea1c1ae4-3517-d3ac-08f4-256f4881dab3
+	fromColumn: OS_Geral.Referência
+	toColumn: 'Parametro Smarts'.REF_SMART
+
+relationship 7807c776-ee64-48a4-87c6-74bc62bf6efd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Backlog BUR'.'DT ENTRADA'
+	toColumn: LocalDateTable_cfa92260-6238-44ee-92e6-608c77aa8ad2.Date
+
+relationship 15f4a259-c148-494d-baee-7c4a8ffaf46f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Backlog BUR'.'DT ENT FIL'
+	toColumn: LocalDateTable_438a7434-3e56-4919-8c21-0648888c7399.Date
+
+relationship ad7b11e5-a4be-473f-8896-dcecadbc3f4d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Backlog BUR'.'DT CONCLUSAO'
+	toColumn: LocalDateTable_4144c67f-fee5-44d4-acfa-452abf58dbf3.Date
+
+relationship fb7e2702-cd08-4727-a6d9-2436fbab970a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Backlog BUR'.'DT ESTORNO'
+	toColumn: LocalDateTable_b1a18618-9692-45bf-ad1e-c12974e9cebe.Date
+
+relationship 00c1377f-cec3-0a97-0452-d2ca77205a45
+	fromColumn: 'Backlog BUR'.'DATA STATUS'
+	toColumn: Calendario.Date
+
+relationship aadff319-cf84-aa4d-3b45-bd4faafca4d9
+	fromColumn: OS_Geral.'Datade entrada'
+	toColumn: Calendario.Date
+
+relationship ae7f3b3f-50b4-5b63-d617-2a4bfd241c06
+	isActive: false
+	fromColumn: OS_Geral.'Data Status'
+	toColumn: Calendario.Date
+
+relationship 21cb815a-4630-a5d9-0e4c-9058007b32db
+	toCardinality: many
+	fromColumn: 'Backlog BUR'.Marca_Check
+	toColumn: 'QUERY - Conclusão BUR'.Marca_Entrada_Bur
+
+relationship eb727e55-d875-4ef4-a013-c8f2e0b94da7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OS_Geral.DT_ENTRADA_BUR
+	toColumn: LocalDateTable_62a37269-0c3b-4d29-9a8c-a798be7ca61a.Date
+
+relationship 2a406925-e630-4cb4-bb8c-214c87de4a13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OS_Geral.'Data Saida'
+	toColumn: LocalDateTable_296c6767-6df8-413a-8a9e-320724f84f76.Date
+
+relationship 4fd6bf27-8d56-67af-4aef-afdb581943a2
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OS_Geral.Cliente
+	toColumn: 'QUERY - Conclusão BUR'.CLIENTE
+
+relationship 4d3be64e-f402-7b55-cfc4-280cb800453b
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Clientes.Cliente
+	toColumn: 'QUERY - Conclusão BUR'.CLIENTE
+
+relationship 071db9a1-525c-36fb-6e21-535bcb03d69b
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OS_Geral.Cliente
+	toColumn: Clientes.Cliente
+
+relationship 073db6cd-d0cd-f037-4f07-bef9c22828df
+	fromColumn: OS_Geral.'Estado do cliente'
+	toColumn: 'TD - ESTADO_FILIAL'.ESTADO
+
+relationship aa3d735f-51b4-7482-84b3-0bca6928d11f
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'TD - ESTADO_FILIAL'.FILIAL
+	toColumn: BASE_VENDAS_LTM.FilialNF
+
+relationship 4be6c07d-3a22-100b-1265-c9a1f1b21b00
+	fromColumn: BASE_VENDAS_LTM.Data
+	toColumn: Calendario.Date
+

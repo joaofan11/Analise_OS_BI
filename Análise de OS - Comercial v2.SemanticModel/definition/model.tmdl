@@ -1,0 +1,44 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["OS_Geral","QUERY - Conclusão BUR","Defeitos","Parametro Smarts","Cadastro Produto","Backlog BUR","QUERY - PV","Clientes","BASECLIENTE","BASE_VENDAS_LTM"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_4fb14b87-5552-4fb2-80cf-721dd9a80a53
+ref table Calendario
+ref table OS_Geral
+ref table 'QUERY - Conclusão BUR'
+ref table Defeitos
+ref table LocalDateTable_17cf9d63-dd26-429f-a3f8-47b5171ed835
+ref table LocalDateTable_b5c1010e-32be-4388-9735-9d4892276ae1
+ref table LocalDateTable_bd030aa6-7ed3-42c8-a552-5adaa171c53b
+ref table LocalDateTable_2f20629e-b314-45e0-b251-096397bd4296
+ref table LocalDateTable_4214d5e2-deb1-47a2-8225-602b698f2cb6
+ref table Marca
+ref table Tipo_Garantia
+ref table 'Parametro Smarts'
+ref table 'Cadastro Produto'
+ref table DimTipo
+ref table 'Backlog BUR'
+ref table LocalDateTable_cfa92260-6238-44ee-92e6-608c77aa8ad2
+ref table LocalDateTable_438a7434-3e56-4919-8c21-0648888c7399
+ref table LocalDateTable_4144c67f-fee5-44d4-acfa-452abf58dbf3
+ref table LocalDateTable_b1a18618-9692-45bf-ad1e-c12974e9cebe
+ref table 'QUERY - PV'
+ref table LocalDateTable_62a37269-0c3b-4d29-9a8c-a798be7ca61a
+ref table LocalDateTable_296c6767-6df8-413a-8a9e-320724f84f76
+ref table Clientes
+ref table BASECLIENTE
+ref table 'TD - ESTADO_FILIAL'
+ref table BASE_VENDAS_LTM
+
+ref cultureInfo pt-BR
+

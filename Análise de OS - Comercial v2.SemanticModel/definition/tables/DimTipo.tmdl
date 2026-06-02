@@ -1,0 +1,35 @@
+table DimTipo
+	lineageTag: 5fce0d8c-a47c-4c96-a06b-0f318fc23277
+
+	column id_tipo
+		formatString: 0
+		lineageTag: 4b804c41-ebf3-4955-a5c0-478bbbc2a2ea
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [id_tipo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_nome
+		lineageTag: 188af213-84d5-440f-8279-7761e5f7c296
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [tipo_nome]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimTipo = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "id_tipo", INTEGER,
+				    "tipo_nome", STRING,
+				    {
+				        { 1, "Smart" },
+				        { 2, "Tradicional"}
+				    }
+				)
+
+	annotation PBI_Id = 37574f78256c48afa94560dfc6c93a14
+

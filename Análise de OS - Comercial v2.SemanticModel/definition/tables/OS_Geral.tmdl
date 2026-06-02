@@ -1,0 +1,591 @@
+table OS_Geral
+	lineageTag: 25ef1f7f-7661-46cd-9024-fe5b30208a10
+
+	measure Total_OS = COUNTROWS(FILTER('OS_Geral','OS_Geral'[OS]<>BLANK()))
+		formatString: 0
+		lineageTag: 75889d1f-c33d-407a-9fdf-73a416bf0d77
+
+		changedProperty = IsHidden
+
+	measure Qtd_entrada_Trad =
+			
+			VAR EntradaSelecionada =
+			    SELECTEDVALUE ( 'OS_Geral'[Tipo_Entrada_OS_Geral] )
+			RETURN
+			    IF (
+			        EntradaSelecionada = "Smart",
+			        0,
+			        CALCULATE (
+			            [Total_OS],
+			            'OS_Geral'[Tipo_Entrada_OS_Geral] = "Trad"
+			        )
+			    )
+		formatString: 0
+		lineageTag: 9fc4b862-99d5-4e13-913e-dc5ef5cee967
+
+		changedProperty = IsHidden
+
+	measure %_conc_smart =
+			
+			DIVIDE(
+			    [Qtd_entrada_Trad],
+			    [Total_OS]
+			)
+		lineageTag: 8e13f1f7-a6aa-48f7-a9cb-7f0d0780f171
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure total_cliente =
+			
+			CALCULATE(
+			    COUNT('OS_Geral'[Garantia Fora Estoque]),
+			    'OS_Geral'[Garantia Fora Estoque] = "Estoque Cliente"
+			)
+		formatString: 0
+		lineageTag: fa5e29d4-a164-4184-904a-c261513d7634
+
+		changedProperty = IsHidden
+
+	measure total_garantia =
+			
+			CALCULATE(
+			    COUNT('OS_Geral'[Garantia Fora Estoque]),
+			    'OS_Geral'[Garantia Fora Estoque] = "Garantia de Venda"
+			)
+		formatString: 0
+		lineageTag: 6efdc266-e703-4466-a7d8-0ca36debbe9d
+
+		changedProperty = IsHidden
+
+	measure Qtd_entrada_Smart =
+			
+			VAR EntradaSelecionada =
+			    SELECTEDVALUE ( 'OS_Geral'[Tipo_Entrada_OS_Geral] )
+			RETURN
+			    IF (
+			        EntradaSelecionada = "Trad",
+			        0,
+			        CALCULATE (
+			            [Total_OS],
+			            'OS_Geral'[Tipo_Entrada_OS_Geral] = "Smart"
+			        )
+			    )
+		formatString: 0
+		lineageTag: cff20b74-ed7d-4427-8121-1606d7d614c3
+
+		changedProperty = IsHidden
+
+	measure Qtd_tipo_trad =
+			
+			CALCULATE(
+			    [Total_OS],
+			    'OS_Geral'[Tipo_Entrada_OS_Geral] = "Tradicional"
+			)
+		formatString: 0
+		lineageTag: e542f88c-3a88-4a93-b13d-054386d8103c
+
+		changedProperty = IsHidden
+
+	measure 'Percentual de Trocas' = ```
+			
+			DIVIDE(
+			    SUM('QUERY - Conclusão BUR'[Flag_Check_BUR]),
+			    SUM('OS_Geral'[Flag_Check_OS])
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6dddaea2-fbae-4ebf-b508-6a22a7e06a55
+
+		changedProperty = IsHidden
+
+	measure 'Percentual de entrada_vendas' =
+			
+			DIVIDE(
+			    SUM('OS_Geral'[Flag_Check_OS]),
+			    SUM('Vendas'[QTDADE])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1269fe85-c990-42d4-8d42-f89c4fa6d739
+
+		changedProperty = IsHidden
+
+	measure 'Entrada AST teste 2' = ```
+			
+			CALCULATE(
+			    SUM(OS_Geral[Flag_Check_OS]),
+			    
+			    -- Propaga o filtro de SEGMENTAÇÃO corretamente
+			    TREATAS(
+			        VALUES('QUERY - Conclusão BUR'[SEGMENTACAO]),
+			        OS_Geral[Garantia Fora Estoque]
+			    ),
+			
+			    -- REMOVE APENAS as colunas que causam interferência
+			    REMOVEFILTERS('QUERY - Conclusão BUR'[SEGMENTACAO])
+			)
+			```
+		formatString: 0
+		lineageTag: 3d9fb697-e829-482d-bef4-dc7b4301f1dd
+
+		changedProperty = IsHidden
+
+	measure 'Entrada troca teste 2' = ```
+			
+			CALCULATE(
+			    SUM('QUERY - Conclusão BUR'[Flag_Check_BUR]),
+			    
+			    -- Propaga o filtro de SEGMENTAÇÃO corretamente
+			    TREATAS(
+			        VALUES('OS_Geral'[Garantia Fora Estoque]),
+			        'QUERY - Conclusão BUR'[SEGMENTACAO]
+			    ),
+			
+			    -- REMOVE APENAS as colunas que causam interferência
+			    REMOVEFILTERS('QUERY - Conclusão BUR'[SEGMENTACAO])
+			)
+			```
+		formatString: 0
+		lineageTag: cea52391-f8f9-49d0-9db0-164686b80290
+
+		changedProperty = IsHidden
+
+	measure TaxaTroca =
+			
+			VAR TotalTroca =
+			    CALCULATE(
+			        COUNTROWS('QUERY - Conclusão BUR'),
+			        'QUERY - Conclusão BUR'[Flag_Check_BUR] = 1
+			    )
+			
+			VAR Concluido =
+			    CALCULATE(
+			        COUNTROWS(OS_geral),
+			        OS_geral[statusAtual] = "CONCLUIDO",
+			        USERELATIONSHIP(Calendario[Date], OS_geral[Data Status])
+			    )
+			
+			RETURN
+			DIVIDE( TotalTroca, TotalTroca + Concluido )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17327f38-82b9-4057-969b-1a2022fb03aa
+
+		changedProperty = IsHidden
+
+	measure Divisor =
+			
+			VAR TotalTroca =
+			    CALCULATE(
+			        COUNTROWS('QUERY - Conclusão BUR'),
+			        'QUERY - Conclusão BUR'[Flag_Check_BUR] = 1
+			    )
+			
+			VAR Concluido =
+			    CALCULATE(
+			        COUNTROWS(OS_geral),
+			        OS_geral[statusAtual] = "CONCLUIDO",
+			        USERELATIONSHIP(Calendario[Date], OS_geral[Data Status])
+			    )
+			
+			RETURN
+			TotalTroca + Concluido
+		formatString: 0
+		lineageTag: 38a1453e-b046-473c-a591-35eef41ea0c0
+
+		changedProperty = IsHidden
+
+	measure 'OS Concluídas Mês' =
+			
+			CALCULATE(
+			    COUNTROWS('OS_Geral'),
+			    USERELATIONSHIP(Calendario[Date], 'OS_Geral'[Data Status])
+			)
+		lineageTag: fe7277c2-51a6-4f5c-b9ed-3bf379ecef68
+
+		changedProperty = IsHidden
+
+	column OS
+		dataType: int64
+		formatString: 0
+		lineageTag: 25621839-d9cc-4567-bb0d-7998c8b6ca7d
+		summarizeBy: sum
+		sourceColumn: OS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datade entrada'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fc5aae9b-e9f3-4652-a0ab-25275c650dd2
+		summarizeBy: none
+		sourceColumn: Datade entrada
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Referência
+		dataType: string
+		lineageTag: 86ba4203-3f5c-4641-9141-cb84cbf41682
+		summarizeBy: none
+		sourceColumn: Referência
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Série
+		dataType: string
+		lineageTag: c1c92cf3-3f11-40c2-8dd5-261c790e296b
+		summarizeBy: none
+		sourceColumn: Série
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 9e96876e-99e5-4f6f-979b-55d1d5ae05ce
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SmartWatch
+		dataType: string
+		lineageTag: 4871a324-140a-4b60-972e-2f85b26015d8
+		summarizeBy: none
+		sourceColumn: SmartWatch
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Garantia Fora Estoque'
+		dataType: string
+		lineageTag: d019740a-a128-4695-b768-5e1263c163e4
+		summarizeBy: none
+		sourceColumn: Garantia Fora Estoque
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusAtual
+		dataType: string
+		lineageTag: 757d16fa-5986-458a-8b1a-699bf86b04c3
+		summarizeBy: none
+		sourceColumn: StatusAtual
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Status'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a880900d-45ba-4840-a219-5610b5a5b509
+		summarizeBy: none
+		sourceColumn: Data Status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Tipo_Entrada_OS_Geral = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[SMART?],
+			        'Parametro Smarts'[REF_SMART], 
+			        'OS_Geral'[Referência]
+			    ),
+			    "Tradicional"
+			)
+			```
+		lineageTag: 3ec53044-e993-4975-8f6a-79e7f217af0e
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca_Check_OS =
+			
+			VAR Resultado_Parametro =
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[Marca_SKU],
+			        'Parametro Smarts'[REF_SMART],
+			        'OS_Geral'[Referência]
+			    )
+			
+			VAR Resultado_OS =
+			    LOOKUPVALUE(
+			        'OS_Geral'[Marca],
+			        'OS_Geral'[Referência],
+			        'OS_Geral'[Referência]
+			    )
+			
+			RETURN
+			    COALESCE(
+			        Resultado_Parametro,
+			        Resultado_OS
+			    )
+		lineageTag: daacd713-dc9f-4087-ae6f-ffa5f3c3aae3
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Defeitos =
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        Defeitos[DescriçãoDefeito],
+			        Defeitos[OS],
+			        'OS_Geral'[OS]
+			    ),
+			    "Não Preenchido"
+			)
+		lineageTag: e083dd3a-63bd-47c1-b9ed-e363e517dfc5
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Posto
+		dataType: string
+		lineageTag: 5808e033-1a2b-47ae-a5d0-9dd4866988e5
+		summarizeBy: none
+		sourceColumn: Posto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cpf/CnpjPosto
+		dataType: string
+		lineageTag: a414dd9a-fe7a-4653-9709-3d60d55c54fc
+		summarizeBy: none
+		sourceColumn: Cpf/CnpjPosto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estadodo posto'
+		dataType: string
+		lineageTag: 8a53a223-d35f-44d0-a392-1df1b1c40d22
+		summarizeBy: none
+		sourceColumn: Estadodo posto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ CPF CLIENTES'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dcb1afc-c89a-4d78-b9dc-8048cbe5bc53
+		summarizeBy: sum
+		sourceColumn: CNPJ CPF CLIENTES
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente
+		dataType: string
+		lineageTag: e9e4c393-e426-45d3-aac6-fbb8de556a20
+		summarizeBy: none
+		sourceColumn: Cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado do cliente'
+		dataType: string
+		lineageTag: 5cd08dd4-ce04-4392-882e-e5aac559a174
+		summarizeBy: none
+		sourceColumn: Estado do cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Número do PV'
+		dataType: string
+		lineageTag: 466d5a9a-7a64-413d-bffe-1ec6c86be228
+		summarizeBy: none
+		sourceColumn: Número do PV
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_Check_OS =
+			
+			IF(
+			    'OS_Geral'[Marca_Check_OS] <> "Blanz",
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: d0a48e4e-e0e4-48fd-9fa1-acdadf851454
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Familia Smart' = IF('OS_Geral'[Tipo_Entrada_OS_Geral]="Smart",LOOKUPVALUE('Parametro Smarts'[Familia_SKU],'Parametro Smarts'[REF_SMART],'OS_Geral'[Referência]),"Tradicional")
+		lineageTag: d5aae9f8-4607-425a-8b86-d40cc8670fde
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEFEITO =
+			
+			VAR Defeito = MINX (FILTER ( Defeitos, Defeitos[OS] = OS_Geral[OS] ),Defeitos[DescriçãoDefeito])
+			
+			RETURN
+			
+			IF(Defeito=BLANK(),"Não Preenchido",Defeito)
+		lineageTag: 206ba6aa-cb6b-448a-aff0-31a569823c57
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LT Conserto' = DATEDIFF('OS_Geral'[Datade entrada],OS_Geral[Data Saida],DAY)
+		formatString: 0
+		lineageTag: 23d55160-4c1f-4f76-a94b-456610328fc9
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_ENTRADA_BUR =
+			LOOKUPVALUE(
+			    'Backlog BUR'[DT ENTRADA], 'Backlog BUR'[ORD SERV IMP], OS_Geral[OS])
+		formatString: General Date
+		lineageTag: 1f7b0a25-7c94-4779-a139-09b9f530ee5e
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: eb727e55-d875-4ef4-a013-c8f2e0b94da7
+			defaultHierarchy: LocalDateTable_62a37269-0c3b-4d29-9a8c-a798be7ca61a.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Saida' =
+			
+			IF(
+			    ISBLANK(OS_Geral[DT_ENTRADA_BUR]),
+			    DATEVALUE(OS_Geral[Data Status]),
+			    DATEVALUE(OS_Geral[DT_ENTRADA_BUR])
+			)
+		formatString: General Date
+		lineageTag: f3429e9b-17ac-47a1-931a-ef4d6cbf5a82
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 2a406925-e630-4cb4-bb8c-214c87de4a13
+			defaultHierarchy: LocalDateTable_296c6767-6df8-413a-8a9e-320724f84f76.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LT Conserto_Concluido' =
+			
+			IF(
+			    OS_Geral[StatusAtual] = "Concluido",
+			    DATEDIFF( OS_Geral[Datade entrada], OS_Geral[Data Saida], DAY ),
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: 79351d55-93cf-4724-b75d-51f6818587d5
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEPdo cliente'
+		dataType: string
+		lineageTag: feaea37a-3784-4e39-a063-1732044c3e3a
+		summarizeBy: none
+		sourceColumn: CEPdo cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column filial = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        BASECLIENTE[FILIAL],
+			        BASECLIENTE[CNPJCPF], 
+			        OS_Geral[CNPJ CPF CLIENTES]
+			    ),
+			    "CPF"
+			)
+			```
+		lineageTag: 992f2291-5e06-47f5-bae6-81cee73e8397
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OS_Geral = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("\\mao-fs01\Arquivos\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\RelatorioOSsGeral.xlsx"), null, true),
+				    OS_Geral_2_Sheet = Fonte{[Item="OS_Geral",Kind="Sheet"]}[Data],
+				    #"Linhas Superiores Removidas" = Table.Skip(OS_Geral_2_Sheet,8),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos",{"Código#(lf)Posto", "CEP do#(lf)Posto", "Rastreio#(lf)de entrada", "Rastreio#(lf)de saida", "Rastreio #(lf)de descarte", "Data Fabricação", "Data Últ.#(lf)Venda", "Física#(lf)Jurídica", "Cidade#(lf)do cliente", "Valor#(lf)do PV", "Valor Pago", "Dias#(lf)na AST", "Tipo Atendimento", "Data#(lf)Importação"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"Estado#(lf)do cliente", "Estado do cliente"}, {"Número#(lf)do PV", "Número do PV"}, {"CNPJ#(lf)CPF", "CNPJ CPF"}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas", each not Text.Contains([OS], "T")),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"OS", Int64.Type}, {"Data#(lf)de entrada", type date}, {"Data Status", type date}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","SMARTS","TECHNOS",Replacer.ReplaceText,{"Marca"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Valor Substituído",{{"CNPJ CPF", "CNPJ CPF CLIENTES"}}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Colunas Renomeadas1",".","",Replacer.ReplaceText,{"CNPJ CPF CLIENTES"}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","/","",Replacer.ReplaceText,{"CNPJ CPF CLIENTES"}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2","-","",Replacer.ReplaceText,{"CNPJ CPF CLIENTES"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Valor Substituído3",{{"CNPJ CPF CLIENTES", Int64.Type}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

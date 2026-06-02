@@ -1,0 +1,368 @@
+table BASE_VENDAS_LTM
+	lineageTag: 9035835d-6233-4783-870b-ba7dd5d51454
+
+	column FilialCad
+		dataType: string
+		lineageTag: 96e2e7e9-99c8-4558-bcc9-d356a5a42ec8
+		summarizeBy: none
+		sourceColumn: FilialCad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Canal
+		dataType: string
+		lineageTag: 1bc5f017-f932-4181-8519-102e44e0f104
+		summarizeBy: none
+		sourceColumn: Canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: a0d11cb0-7efb-4a96-9d2d-75ee8c666eba
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column MarcaAgrupada
+		dataType: string
+		lineageTag: a4c80d66-d966-419b-81ef-49d8a319c639
+		summarizeBy: none
+		sourceColumn: MarcaAgrupada
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Marca'
+		dataType: string
+		lineageTag: 325f6dfd-93c8-46a2-b28e-20081f84f0ed
+		summarizeBy: none
+		sourceColumn: Status Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P1 P2 P3'
+		dataType: int64
+		formatString: 0
+		lineageTag: 93c93d1b-9380-4c51-9c5c-eaf1854e4fa7
+		summarizeBy: sum
+		sourceColumn: P1 P2 P3
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMes
+		dataType: int64
+		formatString: 0
+		lineageTag: 3647268d-269c-4a08-b21f-d41eeba16849
+		summarizeBy: sum
+		sourceColumn: AnoMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AnoMes Texto'
+		dataType: int64
+		formatString: 0
+		lineageTag: 42c54ad6-b939-4269-a02e-36156057ff9b
+		summarizeBy: sum
+		sourceColumn: AnoMes Texto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês
+		dataType: string
+		lineageTag: 7e6efd35-71ec-4435-b198-cfd335a21da6
+		summarizeBy: none
+		sourceColumn: Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'N° Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8670878f-5e7e-4358-a873-abff97101bfb
+		summarizeBy: sum
+		sourceColumn: N° Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ranking Mensal'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7c915bc0-4cfd-46a0-be5c-de2c707c6f3e
+		summarizeBy: none
+		sourceColumn: Ranking Mensal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ranking Mensal Clientes'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e161269c-66b7-43c1-8cbc-656bd2967102
+		summarizeBy: none
+		sourceColumn: Ranking Mensal Clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column YTD
+		dataType: string
+		lineageTag: 8f14dc90-95ec-43f8-b627-6da804d2a236
+		summarizeBy: none
+		sourceColumn: YTD
+
+		annotation SummarizationSetBy = Automatic
+
+	column LTM
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 97ad9a1b-02e5-445a-ba55-c885c923836c
+		summarizeBy: none
+		sourceColumn: LTM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJPri
+		dataType: int64
+		formatString: 0
+		lineageTag: 40c23d37-6901-4324-88dc-e7ecf17c5c1b
+		summarizeBy: sum
+		sourceColumn: CNPJPri
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepCad
+		dataType: string
+		lineageTag: 6edbf28f-f82b-4644-8bd4-0ff69a2dc093
+		summarizeBy: none
+		sourceColumn: RepCad
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepCadCorreto
+		dataType: string
+		lineageTag: fcf9635b-55b3-4400-bdb7-a5bc4fde9eb8
+		summarizeBy: none
+		sourceColumn: RepCadCorreto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check Vendedor Filial'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 532a08f9-9c92-4637-9cbe-87f8c0d256ad
+		summarizeBy: none
+		sourceColumn: Check Vendedor Filial
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalLiquido
+		dataType: double
+		lineageTag: 0e6d7896-daca-45a2-afce-e613dacf1d71
+		summarizeBy: sum
+		sourceColumn: TotalLiquido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalLiquidoCorreto
+		dataType: double
+		lineageTag: ab22a422-90a6-4b19-b546-4e9a3dad2cb1
+		summarizeBy: sum
+		sourceColumn: TotalLiquidoCorreto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tipologia
+		dataType: string
+		lineageTag: 61b62a51-b5c0-4703-b9bc-b070d930984d
+		summarizeBy: none
+		sourceColumn: Tipologia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipologia principal'
+		dataType: string
+		lineageTag: 1de2a855-e527-46fd-83f8-5b6077b55957
+		summarizeBy: none
+		sourceColumn: Tipologia principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Tipologia'
+		dataType: string
+		lineageTag: da478502-4f28-4972-9645-99d154fba429
+		summarizeBy: none
+		sourceColumn: Status Tipologia
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalLiquidoAVP
+		dataType: double
+		lineageTag: 94f75572-e5f1-4850-b3b0-75ef087d0f81
+		summarizeBy: sum
+		sourceColumn: TotalLiquidoAVP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalLiquidoAVPCorreto
+		dataType: double
+		lineageTag: 4445bee9-59db-4a1a-a041-1cbb03b4e5eb
+		summarizeBy: sum
+		sourceColumn: TotalLiquidoAVPCorreto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: e7b1e79c-8f35-48e9-8290-2be213ab84d3
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column RazaoSocial_Cliente
+		dataType: string
+		lineageTag: 3ba78abf-4568-4897-a766-a57a3862cfba
+		summarizeBy: none
+		sourceColumn: RazaoSocial_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_Fantasia
+		dataType: string
+		lineageTag: 5d5b8caa-caf9-457d-881c-bc8510be526c
+		summarizeBy: none
+		sourceColumn: Nome_Fantasia
+
+		annotation SummarizationSetBy = Automatic
+
+	column Smart
+		dataType: string
+		lineageTag: 990526b4-d5c4-48bf-b157-566a3449b316
+		summarizeBy: none
+		sourceColumn: Smart
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: bc2c8c36-8232-439c-9809-64060c995781
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 993ca13c-d13b-4348-a6f9-b2cb042109ca
+		summarizeBy: sum
+		sourceColumn: Quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Codigo_Cliente
+		dataType: string
+		lineageTag: 5e5ceb6c-5084-4b5d-a19d-5cb068d40177
+		summarizeBy: none
+		sourceColumn: Codigo_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column FilialNF
+		dataType: string
+		lineageTag: 56ead015-386b-409f-a4dc-a38afc74ff1e
+		summarizeBy: none
+		sourceColumn: FilialNF
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepNF
+		dataType: string
+		lineageTag: 3e93b3cd-9636-486a-b8a0-91343b03ec82
+		summarizeBy: none
+		sourceColumn: RepNF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Municipio
+		dataType: string
+		lineageTag: 17372a8a-169b-4917-a917-e53247625c0b
+		summarizeBy: none
+		sourceColumn: Municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoX
+		dataType: string
+		lineageTag: 0cb0575d-da2d-433d-bc49-de9dfa41484a
+		summarizeBy: none
+		sourceColumn: GrupoX
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check Di Sant'
+		dataType: string
+		lineageTag: f81ff338-2d80-4d46-949e-3155ba7663e7
+		summarizeBy: none
+		sourceColumn: Check Di Sant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Chave
+		dataType: string
+		lineageTag: a6e33cf6-4f24-40d9-a15a-ba392c1d9560
+		summarizeBy: none
+		sourceColumn: Chave
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoXSmart
+		dataType: string
+		lineageTag: 749335cd-ddc5-445c-9ec4-5e3db9ec09e0
+		summarizeBy: none
+		sourceColumn: GrupoXSmart
+
+		annotation SummarizationSetBy = Automatic
+
+	column Check
+		dataType: string
+		lineageTag: 95c4cdf9-0b6f-4e51-a976-b861f90c0c8f
+		summarizeBy: none
+		sourceColumn: Check
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data = DATE(BASE_VENDAS_LTM[Ano],'BASE_VENDAS_LTM'[N° Mês],1)
+		formatString: Short Date
+		lineageTag: 22e0b623-fe9f-4d5d-9995-146f3d9ef8f8
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition BASE_VENDAS_LTM = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\joaofernandes\Desktop\Projetos\AST\Base de Vendas no LTM.xlsx"), null, true),
+				    Tabela1_Table = Fonte{[Item="Tabela1",Kind="Table"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Tabela1_Table,{{"FilialCad", type text}, {"Canal", type text}, {"Marca", type text}, {"MarcaAgrupada", type text}, {"Status Marca", type text}, {"P1 P2 P3", Int64.Type}, {"AnoMes", Int64.Type}, {"AnoMes Texto", Int64.Type}, {"Mês", type text}, {"N° Mês", Int64.Type}, {"Ranking Mensal", type logical}, {"Ranking Mensal Clientes", type logical}, {"YTD", type text}, {"LTM", type logical}, {"CNPJPri", Int64.Type}, {"RepCad", type text}, {"RepCadCorreto", type text}, {"Check Vendedor Filial", type logical}, {"TotalLiquido", type number}, {"TotalLiquidoCorreto", type number}, {"Tipologia", type text}, {"Tipologia principal", type text}, {"Status Tipologia", type text}, {"TotalLiquidoAVP", type number}, {"TotalLiquidoAVPCorreto", type number}, {"Ano", Int64.Type}, {"RazaoSocial_Cliente", type text}, {"Nome_Fantasia", type text}, {"Smart", type text}, {"UF", type text}, {"Quantidade", Int64.Type}, {"Porte Safra 15", type text}, {"Porte Safra 16", type text}, {"Porte Safra 17", type text}, {"Porte Safra 18", type text}, {"Porte Safra 19", type text}, {"Porte Safra 20", type text}, {"Porte Safra 21", type text}, {"Porte Safra 22", type text}, {"Porte Safra 24", type text}, {"Porte 25", type text}, {"Codigo_Cliente", type text}, {"FilialNF", type text}, {"RepNF", type text}, {"Municipio", type text}, {"GrupoX", type text}, {"Check Di Sant", type text}, {"Chave", type text}, {"GrupoXSmart", type text}, {"Check", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Porte Safra 15", "Porte Safra 16", "Porte Safra 17", "Porte Safra 18", "Porte Safra 19", "Porte Safra 20", "Porte Safra 21", "Porte Safra 22", "Porte Safra 24", "Porte 25"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

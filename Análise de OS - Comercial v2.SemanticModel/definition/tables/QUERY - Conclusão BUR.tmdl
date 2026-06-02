@@ -1,0 +1,742 @@
+table 'QUERY - Conclusão BUR'
+	lineageTag: 35728d24-80ff-45db-ab02-ab33179198e4
+
+	measure Qtd_trocas_saida =
+			
+			COUNTROWS(
+			    FILTER(
+			        'QUERY - Conclusão BUR',
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] <> BLANK()
+			    )
+			)
+		formatString: 0
+		lineageTag: b0312e43-8276-4d5d-abd6-eddeea05e429
+
+		changedProperty = IsHidden
+
+	measure Qtd_troca_Trad_saida =
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			RETURN
+			IF (
+			    TipoSelecionado = "Smart",
+			    0,
+			    CALCULATE (
+			        [Total_Entrada_OS],
+			        'QUERY - Conclusão BUR'[Tipo_Saida] = "Trad"
+			    )
+			)
+		formatString: 0
+		lineageTag: 116dba9c-c9e4-46af-866c-8b96da3d1d2e
+
+		changedProperty = IsHidden
+
+	measure Total_Entrada_OS = COUNTROWS(FILTER('QUERY - Conclusão BUR','QUERY - Conclusão BUR'[ORD SERV]<>BLANK()))
+		formatString: 0
+		lineageTag: 54f5dff9-6fcc-4416-8f9f-efa253a34785
+
+		changedProperty = IsHidden
+
+	measure Qtd_troca_smart_saida =
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			RETURN
+			IF (
+			    TipoSelecionado = "Trad",
+			    0,
+			    CALCULATE (
+			        [Total_Entrada_OS],
+			        'QUERY - Conclusão BUR'[Tipo_Saida] = "Smart"
+			    )
+			)
+		formatString: 0
+		lineageTag: 07bf5bbb-5f06-4fcc-870c-2d5ec52ae70e
+
+		changedProperty = IsHidden
+
+	measure Qtd_troca_smart_entrada =
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Entrada] )
+			RETURN
+			IF (
+			    TipoSelecionado = "Trad",
+			    0,
+			    CALCULATE (
+			        [Total_Entrada_OS],
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] = "Smart"
+			    )
+			)
+		formatString: 0
+		lineageTag: 9b165295-ec4f-44d0-a1de-3fd83fc43b03
+
+		changedProperty = IsHidden
+
+	measure Qtd_troca_Trad_entrada = ```
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Entrada] )
+			RETURN
+			IF (
+			    TipoSelecionado = "Smart",
+			    0,
+			    CALCULATE (
+			        [Total_Entrada_OS],
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] = "Tradicional"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 217cf19e-70c7-4c9e-83a7-4a91b7dd0ce9
+
+		changedProperty = IsHidden
+
+	measure Qtd_trocas_entrada =
+			
+			COUNTROWS(
+			    FILTER(
+			        'QUERY - Conclusão BUR',
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] <> BLANK()
+			    )
+			)
+		formatString: 0
+		lineageTag: 99958ab2-def0-41d7-8e65-38c1ffa7806b
+
+		changedProperty = IsHidden
+
+	measure '% Prazo Excedido_Entrada' =
+			
+			VAR QtdPrazoExcedido =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Entrada] ),
+			        'QUERY - Conclusão BUR'[Motivo Troca] = "PRAZO EXCEDIDO"
+			    )
+			
+			VAR TotalPorTipo =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Entrada] ),
+			        ALL ( 'QUERY - Conclusão BUR'[Motivo Troca] )
+			    )
+			
+			RETURN
+			DIVIDE ( QtdPrazoExcedido, TotalPorTipo, 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 15592d2e-363c-4282-b5e7-d2f6dfd490ed
+
+		changedProperty = IsHidden
+
+	measure '% Falta de Peça_Entrada' =
+			
+			VAR QtdPrazoExcedido =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Entrada] ),
+			        'QUERY - Conclusão BUR'[Motivo Troca] = "FALTA DE PECAS"
+			    )
+			
+			VAR TotalPorTipo =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Entrada] ),
+			        ALL ( 'QUERY - Conclusão BUR'[Motivo Troca] )
+			    )
+			
+			RETURN
+			DIVIDE ( QtdPrazoExcedido, TotalPorTipo, 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4cdf9d20-0625-43d8-8195-97a809ca1173
+
+		changedProperty = IsHidden
+
+	measure '% Smart' = ```
+			
+			VAR QtdTrocaSmart =
+			    CALCULATE(
+			        COUNTROWS('QUERY - Conclusão BUR'),
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] = "Smart"
+			    )
+			
+			VAR EntradaASTTotal =
+			    CALCULATE(
+			        COUNTROWS('OS_Geral'),
+			        ALLSELECTED('OS_Geral') -- ALLSELECTED respeita os filtros de data/segmentação do relatório
+			    )
+			
+			RETURN
+			DIVIDE(QtdTrocaSmart, EntradaASTTotal, 0)
+			
+			
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1bfc3b5a-9798-425a-969c-2a44bfdc2af1
+
+		changedProperty = IsHidden
+
+	measure '% Tradicional' =
+			
+			VAR QtdTrocaTradicional =
+			    CALCULATE(
+			        COUNTROWS('QUERY - Conclusão BUR'),
+			        'QUERY - Conclusão BUR'[Tipo_Entrada] = "Tradicional"
+			    )
+			
+			VAR EntradaASTTotal =
+			    CALCULATE(
+			        COUNTROWS('OS_Geral'),
+			        ALLSELECTED('OS_Geral')
+			    )
+			
+			RETURN
+			DIVIDE(QtdTrocaTradicional, EntradaASTTotal, 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8df4e585-baeb-42bc-843d-f5a45031f33f
+
+		changedProperty = IsHidden
+
+	measure '% smart_saida' =
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			
+			VAR QtdSmart =
+			    CALCULATE (
+			        COUNTROWS ( 'QUERY - Conclusão BUR' ),
+			        'QUERY - Conclusão BUR'[Tipo_Saida] = "Smart"
+			    )
+			
+			VAR TotalGeral =
+			    CALCULATE (
+			        COUNTROWS ( 'QUERY - Conclusão BUR' ),
+			        ALL ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			    )
+			
+			RETURN
+			IF (
+			    TipoSelecionado = "Trad",
+			    0,
+			    DIVIDE ( QtdSmart, TotalGeral, 0 )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6d3f7a3f-3d2e-4bb6-aa88-fc38f9fcf24e
+
+		changedProperty = IsHidden
+
+	measure '% trad_saida' =
+			
+			VAR TipoSelecionado =
+			    SELECTEDVALUE ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			
+			VAR QtdTrad =
+			    CALCULATE (
+			        COUNTROWS ( 'QUERY - Conclusão BUR' ),
+			        'QUERY - Conclusão BUR'[Tipo_Saida] = "Trad"
+			    )
+			
+			VAR TotalGeral =
+			    CALCULATE (
+			        COUNTROWS ( 'QUERY - Conclusão BUR' ),
+			        ALL ( 'QUERY - Conclusão BUR'[Tipo_Saida] )
+			    )
+			
+			RETURN
+			IF (
+			    TipoSelecionado = "Smart",
+			    0,
+			    DIVIDE ( QtdTrad, TotalGeral, 0 )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 90251a57-a020-4fc0-88f4-755c659e246f
+
+		changedProperty = IsHidden
+
+	measure '% Prazo Excedido_saida' =
+			
+			VAR QtdPrazoExcedido =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Saida] ),
+			        'QUERY - Conclusão BUR'[Motivo Troca] = "PRAZO EXCEDIDO"
+			    )
+			
+			VAR TotalPorTipo =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Saida] ),
+			        ALL ( 'QUERY - Conclusão BUR'[Motivo Troca] )
+			    )
+			
+			RETURN
+			DIVIDE ( QtdPrazoExcedido, TotalPorTipo, 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17b68262-e5d6-4900-8dc1-504aa00e8543
+
+		changedProperty = IsHidden
+
+	measure '% Falta de Peça_saida' =
+			
+			VAR QtdPrazoExcedido =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Saida] ),
+			        'QUERY - Conclusão BUR'[Motivo Troca] = "FALTA DE PECAS"
+			    )
+			
+			VAR TotalPorTipo =
+			    CALCULATE (
+			        COUNT ( 'QUERY - Conclusão BUR'[Tipo_Saida] ),
+			        ALL ( 'QUERY - Conclusão BUR'[Motivo Troca] )
+			    )
+			
+			RETURN
+			DIVIDE ( QtdPrazoExcedido, TotalPorTipo, 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d2aecfa4-3f22-4543-9ef7-99a3114eb779
+
+		changedProperty = IsHidden
+
+	measure Total_defeitos_query = COUNTROWS(FILTER('QUERY - Conclusão BUR','QUERY - Conclusão BUR'[ORD SERV IMP]<>BLANK()))
+		formatString: 0
+		lineageTag: 0a3b4bb6-75ce-44cc-86d3-685e383f4517
+
+		changedProperty = IsHidden
+
+	measure 'Teste OS' =
+			
+			SELECTEDVALUE('QUERY - Conclusão BUR'[ORD SERV IMP])
+		formatString: 0
+		lineageTag: 97e1ffc0-cf8a-4aed-8dd5-a59cb0380198
+
+		changedProperty = IsHidden
+
+	measure 'Entrada AST teste' = ```
+			
+			CALCULATE(
+			    SUM(OS_Geral[Flag_Check_OS]),
+			
+			    -- Aplica o filtro da segmentação diretamente em OS_Geral
+			    TREATAS(
+			        VALUES('QUERY - Conclusão BUR'[SEGMENTACAO]),
+			        OS_Geral[Estado do cliente]
+			    ),
+			
+			    REMOVEFILTERS('QUERY - Conclusão BUR')
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a52ffe98-00a9-4b24-8d5a-246e23b60e49
+
+		changedProperty = IsHidden
+
+	measure Trocas_Cliente =
+			
+			CALCULATE(
+			    COUNTROWS( FILTER('QUERY - Conclusão BUR', 'QUERY - Conclusão BUR'[DESC STATUS] = "Direcionar para FLC") ),
+			    USERELATIONSHIP('QUERY - Conclusão BUR'[Cliente], Clientes[Cliente])
+			)
+		formatString: 0
+		lineageTag: 97fd8c1c-4f7e-4a37-92b8-cf5183f9aadd
+
+		changedProperty = IsHidden
+
+	column 'ORD SERV'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0f43bcc-4180-448a-b507-21cdd0cc03a6
+		summarizeBy: sum
+		sourceColumn: ORD SERV
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 1fb3211e-f09e-4dc4-9d87-579cbb9be7bd
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERIE
+		dataType: string
+		lineageTag: 66457502-a5f6-409e-8735-92ae8fc62cd0
+		summarizeBy: none
+		sourceColumn: SERIE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DT ENTRADA'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 7e7bd867-132f-4b2c-b7cb-2f8db50a1816
+		summarizeBy: none
+		sourceColumn: DT ENTRADA
+
+		variation Variation
+			isDefault
+			relationship: fc98b870-0b0c-4790-80c6-a97bb75a37c4
+			defaultHierarchy: LocalDateTable_2f20629e-b314-45e0-b251-096397bd4296.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SEGMENTACAO
+		dataType: string
+		lineageTag: ec51b9c5-f9b8-437d-b53e-3ad23596f5f6
+		summarizeBy: none
+		sourceColumn: SEGMENTACAO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA_ENTRADA
+		dataType: string
+		lineageTag: 7a59a6af-d0db-4204-9d84-826fb83bd4bc
+		summarizeBy: none
+		sourceColumn: MARCA_ENTRADA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DESC STATUS'
+		dataType: string
+		lineageTag: ea4c0379-a259-4235-8dd6-f45cd2afd65c
+		summarizeBy: none
+		sourceColumn: DESC STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ORD SERV IMP'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e8f6179-7ad2-4ceb-81d0-3445a1eb048e
+		summarizeBy: sum
+		sourceColumn: ORD SERV IMP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATA STATUS'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 73468163-2e28-42c7-a351-c50e766293fc
+		summarizeBy: none
+		sourceColumn: DATA STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Numrelogiotrocado
+		dataType: string
+		lineageTag: caf312c5-8fd5-4e40-a541-2c7eca128823
+		summarizeBy: none
+		sourceColumn: Numrelogiotrocado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Motivo Troca'
+		dataType: string
+		lineageTag: b53a1c10-6f8d-4b3d-a3f4-22f2347a50c7
+		summarizeBy: none
+		sourceColumn: Motivo Troca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Motivo Troca'
+		dataType: string
+		lineageTag: 55e9e7ac-4142-4a45-8427-3c694bd3c518
+		summarizeBy: none
+		sourceColumn: Sub Motivo Troca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mês = MONTH('QUERY - Conclusão BUR'[DATA STATUS])
+		formatString: 0
+		lineageTag: 24e3279f-628d-4f84-b7a7-cd41f635bd0e
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Entrada = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[SMART?],
+			        'Parametro Smarts'[REF_SMART], 
+			        'QUERY - Conclusão BUR'[REFERENCIA]
+			    ),
+			    "Tradicional"
+			)
+			```
+		lineageTag: cfd308da-acf0-46d0-ac64-fc3c87ac3b38
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Saida = ```
+			
+			VAR ValorBuscado =
+			    IF (
+			        ISBLANK ( 'QUERY - Conclusão BUR'[NumRelogio_Sem_ND] ),
+			        LOOKUPVALUE (
+			            'Parametro Smarts'[SMART?],
+			            'Parametro Smarts'[REF_SMART],
+			            'QUERY - Conclusão BUR'[REFERENCIA]
+			        ),
+			        LOOKUPVALUE (
+			            'Parametro Smarts'[SMART?],
+			            'Parametro Smarts'[REF_SMART],
+			            'QUERY - Conclusão BUR'[NumRelogio_Sem_ND]
+			        )
+			    )
+			RETURN
+			IF (
+			    ISBLANK ( ValorBuscado ),
+			    "Tradicional",
+			    ValorBuscado
+			)
+			
+			```
+		lineageTag: a00c4060-12ad-4d12-812f-7229b0d58a94
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano = YEAR('QUERY - Conclusão BUR'[DATA STATUS])
+		formatString: 0
+		lineageTag: adf5f797-9a1d-4925-b013-f1ce46c90cba
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumRelogio_Sem_ND =
+			
+			SUBSTITUTE(
+			    'QUERY - Conclusão BUR'[Numrelogiotrocado],
+			    "-ND",
+			    ""
+			)
+		lineageTag: 34462b7b-1496-45d6-ae47-529800cb01d3
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca_Saida =
+			
+			VAR Resultado_Parametro =
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[Marca_SKU],
+			        'Parametro Smarts'[REF_SMART],
+			        'QUERY - Conclusão BUR'[NumRelogio_Sem_ND]
+			    )
+			
+			VAR Resultado_OS =
+			    LOOKUPVALUE(
+			        'OS_Geral'[Marca],
+			        'OS_Geral'[Referência],
+			        'QUERY - Conclusão BUR'[NumRelogio_Sem_ND]
+			    )
+			
+			RETURN
+			    COALESCE(
+			        Resultado_Parametro,
+			        Resultado_OS
+			    )
+		lineageTag: 606cc484-b148-4908-9e8b-0994b23b19ac
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Defeitos =
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        Defeitos[DescriçãoDefeito],
+			        Defeitos[OS],
+			        'QUERY - Conclusão BUR'[ORD SERV IMP]
+			    ),
+			    "Não Preenchido"
+			)
+		lineageTag: 11ea7143-430c-4547-9d40-aa8bde4b2885
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca_Entrada_Bur =
+			
+			VAR Resultado_Parametro =
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[Marca_SKU],
+			        'Parametro Smarts'[REF_SMART],
+			        'QUERY - Conclusão BUR'[REFERENCIA]
+			    )
+			
+			VAR Resultado_OS =
+			    LOOKUPVALUE(
+			        'Cadastro Produto'[Marca],
+			        'Cadastro Produto'[RefB],
+			        'QUERY - Conclusão BUR'[REFERENCIA]
+			    )
+			
+			RETURN
+			    COALESCE(
+			        Resultado_Parametro,
+			        Resultado_OS
+			    )
+		lineageTag: e5d4644d-41a0-429c-a204-13cb3a40bc65
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marcas_check_2 =
+			
+			
+			COALESCE(
+			    'QUERY - Conclusão BUR'[Marca_Entrada_Bur],
+			    'QUERY - Conclusão BUR'[MARCA_ENTRADA]
+			)
+		lineageTag: 272d3bea-b9e1-44c0-86e5-6e5dd24583a0
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag_Check_BUR =
+			
+			IF(
+			    'QUERY - Conclusão BUR'[Marcas_check_2] <> "Blanz",
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: b325b1fb-5c29-4c23-a9e5-da18cb70fbef
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FIS JUR'
+		dataType: string
+		lineageTag: 80181ce1-ae74-4852-8b7a-4f98bea04dcd
+		summarizeBy: none
+		sourceColumn: FIS JUR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CGC
+		dataType: string
+		lineageTag: 57482725-c97a-4e6c-8c0d-d40b6838cc56
+		summarizeBy: none
+		sourceColumn: CGC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEFEITO =
+			
+			VAR Defeito = MINX (FILTER ( Defeitos, Defeitos[OS] = 'QUERY - Conclusão BUR'[ORD SERV IMP] ),Defeitos[DescriçãoDefeito])
+			
+			RETURN
+			
+			IF(Defeito=BLANK(),"Não Preenchido",Defeito)
+		lineageTag: 789f5df5-1cf3-4548-9db0-6c583e4bddb0
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Familia Smart' = IF('QUERY - Conclusão BUR'[Tipo_Entrada]="Smart",LOOKUPVALUE('Parametro Smarts'[Familia_SKU],'Parametro Smarts'[REF_SMART],'QUERY - Conclusão BUR'[REFERENCIA]),"Tradicional")
+		lineageTag: 5c709efd-6f24-483e-9a91-0f3e85fc3fe8
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LT Troca' = DATEDIFF('QUERY - Conclusão BUR'[DT ENTRADA],'QUERY - Conclusão BUR'[DATA STATUS],DAY)
+		formatString: 0
+		lineageTag: fb2c3740-36ac-4dff-9c28-dbf092ef4602
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE
+		dataType: string
+		lineageTag: 60ca4701-cffc-489c-a3d3-71a6c11bc05d
+		summarizeBy: none
+		sourceColumn: CLIENTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'QUERY - Conclusão BUR' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\QUERY - Conclusão BUR.xlsx"), null, true),
+				    #"QUERY - Conclusão BUR_Sheet" = Fonte{[Item="QUERY - Conclusão BUR",Kind="Sheet"]}[Data],
+				    #"Linhas Superiores Removidas" = Table.Skip(#"QUERY - Conclusão BUR_Sheet",1),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"DT ENTRADA", type date}, {"DATA STATUS", type date}, {"ORD SERV IMP", Int64.Type}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"MARCA", "MARCA_ENTRADA"}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Colunas Renomeadas",null,"Não Preenchido",Replacer.ReplaceValue,{"Sub Motivo Troca"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Valor Substituído", {"ORD SERV"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Duplicatas Removidas","DEFEITO FÁBRICA","ESTOQUE CLIENTE",Replacer.ReplaceText,{"SEGMENTACAO"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Valor Substituído1",{"Column5", "TIPO CLIENTE", "VL SERVICO", "VL PECA", "VL ADIANTAMENTO", "VL ORCAMENTO", "STATUS", "DT CONCLUIDO", "SEDEX ENTRADA", "SEDEX RETORNO", "FIL ORD SERV IMP", "DT ENT FIL", "CEP", "UF", "CIDADE", "VL TROCA", "DT ORD SERV IMP", "FILIAL"})
+				in
+				    #"Colunas Removidas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

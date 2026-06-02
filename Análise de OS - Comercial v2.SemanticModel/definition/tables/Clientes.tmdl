@@ -1,0 +1,31 @@
+table Clientes
+	lineageTag: c295eedc-37f9-4a3c-b2ff-be88b8ec1f6a
+
+	column Cliente
+		dataType: string
+		lineageTag: 8255a6f0-8382-443c-ab07-29dccd04f2c7
+		summarizeBy: none
+		sourceColumn: Cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Clientes = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\Clientes.xlsx"), null, true),
+				    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Cliente", type text}, {"Column2", type any}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Column2"})
+				in
+				    #"Colunas Removidas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

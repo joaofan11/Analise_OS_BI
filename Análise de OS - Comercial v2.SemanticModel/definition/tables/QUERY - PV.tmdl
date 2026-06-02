@@ -1,0 +1,247 @@
+table 'QUERY - PV'
+	lineageTag: 77d1b9ba-5237-4fdd-be47-3fba76bd46c6
+
+	column PECA
+		dataType: string
+		lineageTag: 98aeb343-e181-401c-a354-5376a2825991
+		summarizeBy: none
+		sourceColumn: PECA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTD PECA'
+		dataType: string
+		lineageTag: a55edd1c-9cf0-4ea8-9163-215781e48a77
+		summarizeBy: none
+		sourceColumn: QTD PECA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILIAL
+		dataType: string
+		lineageTag: 807daf73-9834-4a58-b947-77a8a42f75bb
+		summarizeBy: none
+		sourceColumn: FILIAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		lineageTag: 64b47e98-f324-4476-b650-ebe9072c34e3
+		summarizeBy: none
+		sourceColumn: Column4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		dataType: string
+		lineageTag: 5be94cf7-8d5e-4052-8709-4d28629ace94
+		summarizeBy: none
+		sourceColumn: Column5
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GARANTIA
+		dataType: string
+		lineageTag: 11af3392-0ac9-4de5-9c6f-6c1f73d1c20a
+		summarizeBy: none
+		sourceColumn: GARANTIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PEDIDO
+		dataType: int64
+		formatString: 0
+		lineageTag: 26ff6aa3-f6f9-46c2-b952-8cfaf1b6001d
+		summarizeBy: sum
+		sourceColumn: PEDIDO
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column8
+		dataType: string
+		lineageTag: 1ebe9e49-2d4a-44f9-a09a-6ba31a1c23e3
+		summarizeBy: none
+		sourceColumn: Column8
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLDFAB
+		dataType: string
+		lineageTag: 915d208a-e136-431f-a3b1-2bd66f3a2479
+		summarizeBy: none
+		sourceColumn: SLDFAB
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLDFLC
+		dataType: string
+		lineageTag: f7d0d3eb-6a54-4196-b26e-646396cf3674
+		summarizeBy: none
+		sourceColumn: SLDFLC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLDKEE
+		dataType: string
+		lineageTag: bf188f08-c7d4-4d4c-89a8-a96d982b217a
+		summarizeBy: none
+		sourceColumn: SLDKEE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLDLOC
+		dataType: string
+		lineageTag: f1ab25d2-b705-454e-b556-ad25655df08e
+		summarizeBy: none
+		sourceColumn: SLDLOC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VL PECA'
+		dataType: string
+		lineageTag: f4362d0e-5f84-4837-a6e6-a95e748bc31d
+		summarizeBy: none
+		sourceColumn: VL PECA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE
+		dataType: string
+		lineageTag: 31748892-de3d-403a-b2ee-aaa9faf80524
+		summarizeBy: none
+		sourceColumn: CLIENTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: c9033b96-8f46-493e-92b0-cb3255c6e2c3
+		summarizeBy: sum
+		sourceColumn: STATUS
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DT PEDIDO'
+		dataType: string
+		lineageTag: 88b09f25-74ea-4b8b-9d85-17aacc8d9770
+		summarizeBy: none
+		sourceColumn: DT PEDIDO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DT STATUS'
+		dataType: string
+		lineageTag: 6fe50be3-da02-45d5-ba41-54afab866008
+		summarizeBy: none
+		sourceColumn: DT STATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OS AUTORIZADA'
+		dataType: string
+		lineageTag: 29c7f5e8-b5b0-457b-b914-8f7a17b5a7e6
+		summarizeBy: none
+		sourceColumn: OS AUTORIZADA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VL PEDIDO'
+		dataType: string
+		lineageTag: 481c7490-311e-4298-9691-5ffd612b34ae
+		summarizeBy: none
+		sourceColumn: VL PEDIDO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desc Status PV' =
+			
+			SWITCH(
+			    TRUE(),
+			    'QUERY - PV'[STATUS] = 1, "Aberto",
+			    'QUERY - PV'[STATUS] = 3, "Aguardando Pagamento",
+			    'QUERY - PV'[STATUS] = 4, "Aguardando Confirmacao da Peca",
+			    'QUERY - PV'[STATUS] = 5, "Estorno",
+			    'QUERY - PV'[STATUS] = 6, "Concluido",
+			    'QUERY - PV'[STATUS] = 7, "Pronto",
+			    'QUERY - PV'[STATUS] = 8, "Aguardando Pecas (FLC)",
+			    'QUERY - PV'[STATUS] = 9, "Aguardando Pecas (LOG)",
+			    'QUERY - PV'[STATUS] = 10, "Aguardando Pecas (Transf/Compra)",
+			    'QUERY - PV'[STATUS] = 11, "Peca Confirmada",
+			    'QUERY - PV'[STATUS] = 12, "Solicitar Seg.Pedido",
+			    'QUERY - PV'[STATUS] = 13, "Transito",
+			    'QUERY - PV'[STATUS] = 14, "Aguarda peça exterior",
+			    'QUERY - PV'[STATUS] = 15, "Aguarda peça Manaus",
+			    'QUERY - PV'[STATUS] = 16, "Aguardando Pecas (LOG)",
+			    'QUERY - PV'[STATUS] = 17, "Encaminhado para estorno",
+			    'QUERY - PV'[STATUS] = 18, "Analise Excepcional",
+			    'QUERY - PV'[STATUS] = 19, "Aguardando Adaptacao",
+			    "Status Não Mapeado"
+			)
+		lineageTag: 6084bad0-2675-4b45-a594-0e65e053a770
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'QUERY - PV' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\QUERY - PV.xlsx"), null, true),
+				    #"QUERY - PV_Sheet" = Fonte{[Item="QUERY - PV",Kind="Sheet"]}[Data],
+				    #"Linhas Superiores Removidas" = Table.Skip(#"QUERY - PV_Sheet",2),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true])
+				in
+				    #"Cabeçalhos Promovidos"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

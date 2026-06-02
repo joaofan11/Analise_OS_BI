@@ -1,0 +1,50 @@
+table Marca
+	lineageTag: 8a99f1eb-b17b-48e2-bca5-129c29b4c365
+
+	column Marca
+		lineageTag: cd602422-cbc9-4c1d-8027-83ce9713227a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Marca]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Marca = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Marca", STRING,
+				    {
+				        {"CONDOR"},
+				        {"TECHNOS"},
+				        {"MORMAII"},
+				        {"EURO"},
+				        {"MKORS"},
+				        {"TOUCH"},
+				        {"DUMONT"},
+				        {"FOSSIL"},
+				        {"MONTE_CARLO"},
+				        {"MICHAEL KORS"},
+				        {"CLUBES_TECHNOS"},
+				        {"ARM_EXC"},
+				        {"DIESEL"},
+				        {"MARINER"},
+				        {"ALLORA"},
+				        {"DKNY"},
+				        {"SEIKO"},
+				        {"TIMEX"},
+				        {"EMPORIOA"},
+				        {"RESERVA"},
+				        {"SKAGEN"},
+				        {"SMARTS"},
+				        {"ADIDAS"},
+				        {"MARCJACO"},
+				        {"GOETTEMS"},
+				        {"BURBERRY"},
+				        {"KATE_SPADE"}
+				    }
+				)
+
+	annotation PBI_Id = 8a76284c9c164a4b831ae969e3964d1e
+

@@ -1,0 +1,705 @@
+table 'Cadastro Produto'
+	lineageTag: f0c39341-0836-41c5-892e-f5fbf0c62456
+
+	column RefB
+		dataType: string
+		lineageTag: a2077c85-3d2c-49d9-a636-8680c3ab63f3
+		summarizeBy: none
+		sourceColumn: RefB
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenciaBarra
+		dataType: string
+		lineageTag: a6a7f978-3842-407a-ab16-aa4eaef0f25b
+		summarizeBy: none
+		sourceColumn: ReferenciaBarra
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ref
+		dataType: string
+		lineageTag: fbde4ceb-ea55-47c5-ad16-e446c45045ea
+		summarizeBy: none
+		sourceColumn: Ref
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Barra
+		dataType: string
+		lineageTag: 42ac75a7-879a-4c13-88fc-0dd59e741b4e
+		summarizeBy: none
+		sourceColumn: Barra
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Calib
+		dataType: string
+		lineageTag: 9716cb2b-fffe-4926-a1a5-c9dcd9b9b3dd
+		summarizeBy: none
+		sourceColumn: Calib
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMesLancamento
+		dataType: string
+		lineageTag: bfeda3e0-e8f6-43cc-94c4-616fb4072427
+		summarizeBy: none
+		sourceColumn: AnoMesLancamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cgrupo
+		dataType: string
+		lineageTag: 7aab1fa7-f305-435e-9a68-93e55cb44205
+		summarizeBy: none
+		sourceColumn: Cgrupo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 711480f9-921c-44f1-a947-c5ec39318f15
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fornec
+		dataType: string
+		lineageTag: 402bf52d-371c-4f88-aca8-a6a4631a8964
+		summarizeBy: none
+		sourceColumn: Fornec
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Linha
+		dataType: string
+		lineageTag: 4cefa35d-eb1e-413f-9c84-67082f4774e6
+		summarizeBy: none
+		sourceColumn: Linha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubGrupo
+		dataType: string
+		lineageTag: 3736c650-69a2-429a-b57e-fc5af277798f
+		summarizeBy: none
+		sourceColumn: SubGrupo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubLinha
+		dataType: string
+		lineageTag: 147e9254-c36b-402b-b2c2-c7840612cb0c
+		summarizeBy: none
+		sourceColumn: SubLinha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FornecMaq
+		dataType: string
+		lineageTag: 1e6647c2-75c2-498d-b765-222098997e0c
+		summarizeBy: none
+		sourceColumn: FornecMaq
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bloqueada
+		dataType: string
+		lineageTag: 3b35da41-4577-4066-b18a-6626adee4be7
+		summarizeBy: none
+		sourceColumn: Bloqueada
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TempoPadrao
+		dataType: string
+		lineageTag: 1cf1d95c-ca1b-4281-934a-9f92387a966d
+		summarizeBy: none
+		sourceColumn: TempoPadrao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estojo
+		dataType: string
+		lineageTag: b0affcd0-4ccb-4e7b-96b4-a67dab53ba2a
+		summarizeBy: none
+		sourceColumn: Estojo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manual
+		dataType: string
+		lineageTag: 56eb5568-cfe8-47d2-96b0-601cfce5aeb6
+		summarizeBy: none
+		sourceColumn: Manual
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertGar
+		dataType: string
+		lineageTag: 3866cfa6-c410-423d-908e-4596feba8c16
+		summarizeBy: none
+		sourceColumn: CertGar
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RefFornec
+		dataType: string
+		lineageTag: 530e9d20-42a0-405e-afbb-08822ab13c82
+		summarizeBy: none
+		sourceColumn: RefFornec
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Embalagem
+		dataType: string
+		lineageTag: 4382d281-2a68-4363-9536-c82169ec5d20
+		summarizeBy: none
+		sourceColumn: Embalagem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brindes
+		dataType: string
+		lineageTag: 2bed9fc0-c287-4c60-88ca-9b3b26ff7315
+		summarizeBy: none
+		sourceColumn: Brindes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acessorios
+		dataType: string
+		lineageTag: 5a5142b4-348a-427c-97bc-87c99a688bc9
+		summarizeBy: none
+		sourceColumn: Acessorios
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescricaoNota
+		dataType: string
+		lineageTag: 5f84135d-f10e-45e8-a7aa-a2614ff01419
+		summarizeBy: none
+		sourceColumn: DescricaoNota
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Execucao
+		dataType: string
+		lineageTag: 21ead169-917c-4542-aa96-fa0b0749d8f4
+		summarizeBy: none
+		sourceColumn: Execucao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstojoProtheus
+		dataType: int64
+		formatString: 0
+		lineageTag: dbb4cffd-f97a-42d8-b350-2ac9750f824f
+		summarizeBy: sum
+		sourceColumn: EstojoProtheus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManualProtheus
+		dataType: int64
+		formatString: 0
+		lineageTag: c5a3aff4-78ee-41e5-87f3-d38e8994a6e3
+		summarizeBy: sum
+		sourceColumn: ManualProtheus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertGarProtheus
+		dataType: string
+		lineageTag: 95ac5c2b-7c8b-44b5-9aff-95acef224860
+		summarizeBy: none
+		sourceColumn: CertGarProtheus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoProduto
+		dataType: string
+		lineageTag: 9d440090-8a36-461e-80e6-dc5ee42c7858
+		summarizeBy: none
+		sourceColumn: TipoProduto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Display
+		dataType: string
+		lineageTag: cc9f4d66-47b8-4cea-b22a-be86cb963895
+		summarizeBy: none
+		sourceColumn: Display
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoMaquinismo
+		dataType: string
+		lineageTag: c88318e0-92e6-41c4-9b19-678a135b4b76
+		summarizeBy: none
+		sourceColumn: TipoMaquinismo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FuncaoMaquinismo
+		dataType: string
+		lineageTag: be38b4d5-01f0-43aa-810a-73a6bd580a4e
+		summarizeBy: none
+		sourceColumn: FuncaoMaquinismo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Origem
+		dataType: string
+		lineageTag: 71e0584f-1fd0-4796-9773-c94935902bdb
+		summarizeBy: none
+		sourceColumn: Origem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassificacaoFiscal
+		dataType: int64
+		formatString: 0
+		lineageTag: c51d781e-195a-456d-a7df-223aea79230c
+		summarizeBy: sum
+		sourceColumn: ClassificacaoFiscal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DCR
+		dataType: int64
+		formatString: 0
+		lineageTag: 52298144-9b77-434f-8221-2c5ed4691f51
+		summarizeBy: sum
+		sourceColumn: DCR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescricaoNCM
+		dataType: string
+		lineageTag: 6c3b922e-d311-478b-94e3-0ea55dc6cf2c
+		summarizeBy: none
+		sourceColumn: DescricaoNCM
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EAN
+		dataType: int64
+		formatString: 0
+		lineageTag: beef898c-5db9-49b4-8f9b-46f839f8d3db
+		summarizeBy: sum
+		sourceColumn: EAN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: 1e178ede-0998-4513-8a71-a0b3e7ca9466
+		summarizeBy: none
+		sourceColumn: Genero
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoEconomico
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a3bfe88-3eea-4450-a669-be2404da76b0
+		summarizeBy: sum
+		sourceColumn: GrupoEconomico
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResAgua
+		dataType: string
+		lineageTag: ca5550ff-3f89-4344-8fdb-be41687e7805
+		summarizeBy: none
+		sourceColumn: ResAgua
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MatCaixa
+		dataType: string
+		lineageTag: 6d85e6df-98af-4f21-977e-49f398c253a3
+		summarizeBy: none
+		sourceColumn: MatCaixa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorCaixa
+		dataType: string
+		lineageTag: 06d5aebb-ddd5-4bbd-b975-95fe57a4341a
+		summarizeBy: none
+		sourceColumn: CorCaixa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TamCaixa
+		dataType: double
+		lineageTag: 85afd796-a7b9-4203-b669-091a5dbd657d
+		summarizeBy: sum
+		sourceColumn: TamCaixa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MatPuls
+		dataType: string
+		lineageTag: 536a50aa-a0c6-4253-84b9-ec1b37bdf9b4
+		summarizeBy: none
+		sourceColumn: MatPuls
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorPuls
+		dataType: string
+		lineageTag: 963e28b7-2ec2-40f2-b5e0-7f9965640fc8
+		summarizeBy: none
+		sourceColumn: CorPuls
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipPuls
+		dataType: string
+		lineageTag: 58b3dc97-42d2-4230-abb6-4f6dae443dbd
+		summarizeBy: none
+		sourceColumn: TipPuls
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipFecho
+		dataType: string
+		lineageTag: 12de4398-0b3d-473c-9ce0-93eba146616c
+		summarizeBy: none
+		sourceColumn: TipFecho
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedPuls
+		dataType: int64
+		formatString: 0
+		lineageTag: bc7019bc-7d49-4319-906a-e5957c4617cb
+		summarizeBy: sum
+		sourceColumn: MedPuls
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorFecho
+		dataType: string
+		lineageTag: f7c655ac-643f-4baa-ab3d-fc604672ed27
+		summarizeBy: none
+		sourceColumn: CorFecho
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorCoroa
+		dataType: string
+		lineageTag: f1adfbcb-19db-4fa4-830c-9d6128dec647
+		summarizeBy: none
+		sourceColumn: CorCoroa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoCoroa
+		dataType: string
+		lineageTag: f3c65c68-bf00-494a-9ef0-f303632dd25b
+		summarizeBy: none
+		sourceColumn: TipoCoroa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorMostr
+		dataType: string
+		lineageTag: bace9b1a-efc9-49c1-afe5-c1e23f950ce7
+		summarizeBy: none
+		sourceColumn: CorMostr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorPont
+		dataType: string
+		lineageTag: f45609c3-ffc9-4799-a566-5bf8263c7ba0
+		summarizeBy: none
+		sourceColumn: CorPont
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorPusher
+		dataType: string
+		lineageTag: 2fa5954a-bd40-49fc-bb36-6e67c625c9e9
+		summarizeBy: none
+		sourceColumn: CorPusher
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CorAro
+		dataType: string
+		lineageTag: 500fcc6e-6324-46d1-a9e9-e044217c2450
+		summarizeBy: none
+		sourceColumn: CorAro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipAro
+		dataType: string
+		lineageTag: 7d644127-a19a-41b5-a49d-a9fd1ee5d7dc
+		summarizeBy: none
+		sourceColumn: TipAro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoVidro
+		dataType: string
+		lineageTag: 1c821259-c437-4108-9e84-66e5ddb87c58
+		summarizeBy: none
+		sourceColumn: TipoVidro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoFundo
+		dataType: string
+		lineageTag: 6560b8e8-5e1a-4ff9-afab-6ff684413ce6
+		summarizeBy: none
+		sourceColumn: TipoFundo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inspecao
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dd199d3-63e9-435f-99d5-add55c607fd2
+		summarizeBy: sum
+		sourceColumn: Inspecao
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MotivoBloqueio
+		dataType: string
+		lineageTag: 37ce40cd-78c2-486e-8334-49af183a92b5
+		summarizeBy: none
+		sourceColumn: MotivoBloqueio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NormaWS
+		dataType: int64
+		formatString: 0
+		lineageTag: 276ae226-5812-424b-805b-04da22822e08
+		summarizeBy: sum
+		sourceColumn: NormaWS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObsProd
+		dataType: string
+		lineageTag: a2d0fe82-08d9-452e-96db-a083ea3e92de
+		summarizeBy: none
+		sourceColumn: ObsProd
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Peso
+		dataType: double
+		lineageTag: 85a840bd-eefa-415e-8b40-49bba3012c63
+		summarizeBy: sum
+		sourceColumn: Peso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PosCalend
+		dataType: string
+		lineageTag: 86a6f489-f753-4fec-925b-29f46380a1e6
+		summarizeBy: none
+		sourceColumn: PosCalend
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrcLista
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ffa709f-6177-4d17-a325-2322d2284d59
+		summarizeBy: sum
+		sourceColumn: PrcLista
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatoCaixa
+		dataType: string
+		lineageTag: 8336558a-68e2-409c-90c2-810629f4b923
+		summarizeBy: none
+		sourceColumn: FormatoCaixa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescricaoComercial
+		dataType: string
+		lineageTag: 2b8f120d-a680-4ae2-a69f-09d302a47b11
+		summarizeBy: none
+		sourceColumn: DescricaoComercial
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TechnosCare
+		dataType: string
+		lineageTag: 69366a91-4b11-433d-ac24-d605a7d97800
+		summarizeBy: none
+		sourceColumn: TechnosCare
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cadastro Produto' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\joaofernandes\Downloads\CADASTRO PRODUTO - NovoCompras (1).xlsm"), null, true),
+				    #"Cadastro Produto_Sheet" = Fonte{[Item="Cadastro Produto",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Cadastro Produto_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"RefB", type text}, {"ReferenciaBarra", type text}, {"Ref", type text}, {"Barra", type text}, {"Calib", type text}, {"AnoMesLancamento", type any}, {"Cgrupo", type text}, {"Marca", type text}, {"Fornec", type text}, {"Linha", type text}, {"SubGrupo", type text}, {"SubLinha", type text}, {"FornecMaq", type text}, {"Bloqueada", type text}, {"TempoPadrao", type text}, {"Estojo", type text}, {"Manual", type text}, {"CertGar", type text}, {"RefFornec", type text}, {"Embalagem", type any}, {"Brindes", type any}, {"Acessorios", type any}, {"DescricaoNota", type text}, {"Execucao", type text}, {"EstojoProtheus", Int64.Type}, {"ManualProtheus", Int64.Type}, {"CertGarProtheus", type text}, {"TipoProduto", type text}, {"Display", type text}, {"TipoMaquinismo", type text}, {"FuncaoMaquinismo", type text}, {"Origem", type text}, {"ClassificacaoFiscal", Int64.Type}, {"DCR", Int64.Type}, {"DescricaoNCM", type text}, {"EAN", Int64.Type}, {"Genero", type text}, {"GrupoEconomico", Int64.Type}, {"ResAgua", type text}, {"MatCaixa", type text}, {"CorCaixa", type text}, {"TamCaixa", type number}, {"MatPuls", type text}, {"CorPuls", type text}, {"TipPuls", type text}, {"TipFecho", type text}, {"MedPuls", Int64.Type}, {"CorFecho", type text}, {"CorCoroa", type text}, {"TipoCoroa", type text}, {"CorMostr", type text}, {"CorPont", type text}, {"CorPusher", type text}, {"CorAro", type text}, {"TipAro", type text}, {"TipoVidro", type text}, {"TipoFundo", type text}, {"Inspecao", Int64.Type}, {"MotivoBloqueio", type any}, {"NormaWS", Int64.Type}, {"ObsProd", type text}, {"Peso", type number}, {"PosCalend", type text}, {"PrcLista", Int64.Type}, {"FormatoCaixa", type text}, {"DescricaoComercial", type text}, {"TechnosCare", type text}, {"Column68", type any}, {"Column69", type any}, {"Column70", type any}, {"Column71", type any}, {"Column72", type any}, {"Column73", type any}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Column68", "Column69", "Column70", "Column71", "Column72", "Column73"})
+				in
+				    #"Colunas Removidas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

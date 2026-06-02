@@ -1,0 +1,34 @@
+table Tipo_Garantia
+	lineageTag: 405fd228-46c5-463e-b7f1-07fa1122f046
+
+	column Tipo_Garantia
+		lineageTag: 3d8a9f22-1e05-4527-aeb9-048b4ad070ed
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Tipo_Garantia]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tipo_Garantia = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Tipo_Garantia", STRING,
+				    {
+				        {"Garantia de Venda"},
+				        {"Sem Garantia"},
+				        {"Estoque Cliente"},
+				        {"Retorno"}
+				    }
+				)
+				
+				
+				
+				
+				
+				
+				```
+
+	annotation PBI_Id = 790200a6d7f046d5b8f57eabff923e06
+

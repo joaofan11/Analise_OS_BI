@@ -1,0 +1,59 @@
+table 'TD - ESTADO_FILIAL'
+	lineageTag: cc40adca-d97f-40cb-a6ef-10d979939807
+
+	column ESTADO
+		lineageTag: 871f5aed-172c-4e26-8463-61e9e1ce12fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ESTADO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILIAL
+		lineageTag: b920fd75-4f0a-44d8-bb6a-60396f8a203a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FILIAL]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TD - ESTADO_FILIAL' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "ESTADO", STRING,
+				    "FILIAL", STRING,
+				    {
+				        {"AC", BLANK()},
+				        {"AL", "REC"},
+				        {"AM", "BEL"},
+				        {"AP", "BEL"},
+				        {"BA", "SVD"},
+				        {"CE", "FOR"},
+				        {"DF", "BSB"},
+				        {"ES", "SVD"},
+				        {"GO", "BSB"},
+				        {"MA", "FOR"},
+				        {"MG", "BHZ"},
+				        {"MS", "BSB"},
+				        {"MT", "BSB"},
+				        {"PA", "BEL"},
+				        {"PB", "REC"},
+				        {"PE", "REC"},
+				        {"PI", "FOR"},
+				        {"PR", "CTB"},
+				        {"RJ", "RIO"},
+				        {"RN", "FOR"},
+				        {"RO", "BSB"},
+				        {"RR", "BEL"},
+				        {"RS", "POA"},
+				        {"SC", "CTB"},
+				        {"SE", "SVD"},
+				        {"SP", "SPM"},
+				        {"TO", "BSB"}
+				    }
+				)
+
+	annotation PBI_Id = 840658c7ef2445a69ca848802aa9f850
+

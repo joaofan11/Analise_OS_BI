@@ -1,0 +1,66 @@
+table Calendario
+	lineageTag: 5245d24d-d4f7-4701-bb07-b998d5b09f82
+
+	column Date
+		formatString: Short Date
+		lineageTag: 3bbcd4e0-6ff8-4ab8-adf0-4a121ee48f76
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 3df331c7-c62b-4b38-b0be-c89a3af6022f
+			defaultHierarchy: LocalDateTable_4214d5e2-deb1-47a2-8225-602b698f2cb6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano = Calendario[Date].[Ano]
+		formatString: 0
+		lineageTag: fcd20fce-9abb-4333-8ebc-51cd604c0082
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre = Calendario[Date].[Trimestre]
+		lineageTag: 14fa2daf-64ea-4819-97f2-a59a7a25910b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês = Calendario[Date].[Mês]
+		lineageTag: 89e22fea-41b3-4b9b-b2b1-51c655679439
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia = Calendario[Date].[Dia]
+		formatString: 0
+		lineageTag: 12fa2c33-41a6-42c1-baba-9ed2c5b77cb6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAbrev = LEFT('Calendario'[Mês],3)
+		lineageTag: 6b27cf78-02aa-4e74-b803-cdeac37fdd8f
+		summarizeBy: none
+		sortByColumn: NumMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMes = ```
+			MONTH('Calendario'[Date])
+			
+			```
+		formatString: 0
+		lineageTag: 58b83acb-0c15-41dd-98cc-ec766b848e3a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = calculated
+		mode: import
+		source = CALENDAR(DATE(2024, 01,01), TODAY())
+
+	annotation PBI_Id = ef52db49104444288313ce8d8874e92b
+

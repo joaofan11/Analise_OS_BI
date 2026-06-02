@@ -1,0 +1,418 @@
+table Defeitos
+	lineageTag: 53d087e1-d66c-4ae0-b4ff-fd6ae43551f6
+
+	measure Total_defeitos = COUNTROWS(FILTER('Defeitos','Defeitos'[OS]<>BLANK()))
+		formatString: 0
+		lineageTag: 43192f86-c7e5-424f-bc56-07685a024742
+
+		changedProperty = IsHidden
+
+	measure Total_OS_Defeitos = COUNTROWS(FILTER('Defeitos','Defeitos'[OS]<>BLANK()))
+		formatString: 0
+		lineageTag: 73147eb9-0c6e-4c33-b683-c846489730cf
+
+		changedProperty = IsHidden
+
+	measure Qtd_defeitos_Smart =
+			
+			CALCULATE(
+			    [Total_OS_Defeitos],
+			    'Defeitos'[Tipo_Corrigido] = "Smart"
+			)
+		formatString: 0
+		lineageTag: 6679be8e-d18f-432b-8139-8bee4a4ca99c
+
+		changedProperty = IsHidden
+
+	measure Qtd_defeitos_trad =
+			
+			CALCULATE(
+			    [Total_OS_Defeitos],
+			    'Defeitos'[Tipo_Corrigido] = "Trad"
+			)
+		formatString: 0
+		lineageTag: d404e3c0-f076-4d83-9afc-1b5155b9f4ff
+
+		changedProperty = IsHidden
+
+	column Marca
+		dataType: string
+		lineageTag: 1d3061ba-e1f0-42f6-88ac-7d143cff2605
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente
+		dataType: string
+		lineageTag: 8df09e98-dece-483a-a680-3c4c90217f7c
+		summarizeBy: none
+		sourceColumn: Cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OS
+		dataType: int64
+		formatString: 0
+		lineageTag: d2461bd7-c279-4386-94c5-4c95da6fbf8e
+		summarizeBy: sum
+		sourceColumn: OS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posto autorizado'
+		dataType: string
+		lineageTag: 4ca9fea4-4fa3-4695-b9b1-b61f35ef5170
+		summarizeBy: none
+		sourceColumn: Posto autorizado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado doposto'
+		dataType: string
+		lineageTag: 967eac0f-8a39-4287-933c-839657a9608f
+		summarizeBy: none
+		sourceColumn: Estado doposto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP doposto'
+		dataType: string
+		lineageTag: 3dc918b2-23d6-492b-a5ab-125bd28dfb06
+		summarizeBy: none
+		sourceColumn: CEP doposto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rastreio deentrada'
+		dataType: string
+		lineageTag: 10b72d9c-293b-43cf-91cd-214387ee9d0a
+		summarizeBy: none
+		sourceColumn: Rastreio deentrada
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rastreio desaída'
+		dataType: string
+		lineageTag: 847db1af-c76c-40f5-90f4-adae1ebaa27c
+		summarizeBy: none
+		sourceColumn: Rastreio desaída
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data deentrada'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f400ff9e-5fa2-45e1-8178-79dae85a37df
+		summarizeBy: none
+		sourceColumn: Data deentrada
+
+		variation Variation
+			isDefault
+			relationship: 70b1a412-7458-46da-9cf9-a73d7e572346
+			defaultHierarchy: LocalDateTable_17cf9d63-dd26-429f-a3f8-47b5171ed835.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Referência
+		dataType: string
+		lineageTag: 70cc5a52-8101-422e-aa09-3da1762adac2
+		summarizeBy: none
+		sourceColumn: Referência
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Série
+		dataType: string
+		lineageTag: 1246ee75-124a-4394-8bbe-b0549b87e0f5
+		summarizeBy: none
+		sourceColumn: Série
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datafabricação
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3437f6ea-333a-4c0d-ba09-67dae3b251c8
+		summarizeBy: none
+		sourceColumn: Datafabricação
+
+		variation Variation
+			isDefault
+			relationship: 44e48098-7999-485a-a33e-fd77459acaa1
+			defaultHierarchy: LocalDateTable_b5c1010e-32be-4388-9735-9d4892276ae1.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Datavenda
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1cbceff3-a3ba-4c9c-b15a-36b4600a7fc7
+		summarizeBy: none
+		sourceColumn: Datavenda
+
+		variation Variation
+			isDefault
+			relationship: 3857bd9e-4cef-4e09-a234-e4761bdb90e9
+			defaultHierarchy: LocalDateTable_bd030aa6-7ed3-42c8-a552-5adaa171c53b.'Hierarquia de datas'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Garantia ForaEstoque'
+		dataType: string
+		lineageTag: c0ec5912-edb2-4428-a0e7-c1f8b98cb60c
+		summarizeBy: none
+		sourceColumn: Garantia ForaEstoque
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FísicoJuríidico
+		dataType: string
+		lineageTag: e23e7fa4-b905-403f-a542-00059348134a
+		summarizeBy: none
+		sourceColumn: FísicoJuríidico
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ/CPF
+		dataType: string
+		lineageTag: a0c835d2-f74a-4053-87df-7950861612e4
+		summarizeBy: none
+		sourceColumn: CNPJ/CPF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estadodo cliente'
+		dataType: string
+		lineageTag: e8d9375a-5d11-4b33-8a8e-c50f3e2f3396
+		summarizeBy: none
+		sourceColumn: Estadodo cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidadedo cliente'
+		dataType: string
+		lineageTag: 5516a354-a759-4d71-a50c-cb00756a0cfd
+		summarizeBy: none
+		sourceColumn: Cidadedo cliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP docliente'
+		dataType: string
+		lineageTag: 6f1e4a6a-37eb-4236-b411-e2c86196aee2
+		summarizeBy: none
+		sourceColumn: CEP docliente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Númerodo PV'
+		dataType: string
+		lineageTag: cc544889-05cb-4452-9afc-0915fa2147d1
+		summarizeBy: none
+		sourceColumn: Númerodo PV
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do PV'
+		dataType: string
+		lineageTag: d98921b2-37bb-4fb2-b8b5-41d964e0a979
+		summarizeBy: none
+		sourceColumn: Valor do PV
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Atual'
+		dataType: string
+		lineageTag: 06d1d07e-ba4b-4edb-9889-9ce05ece6b97
+		summarizeBy: none
+		sourceColumn: Status Atual
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data últimostatus'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a29a82c0-8f20-48a8-8c3f-23ee0792902c
+		summarizeBy: none
+		sourceColumn: Data últimostatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Dias na AST'
+		dataType: string
+		lineageTag: dec28f51-6665-426c-a168-ead8346a650d
+		summarizeBy: none
+		sourceColumn: Dias na AST
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cód Defeito'
+		dataType: string
+		lineageTag: 89a069c9-efc9-45b1-8322-dadabccd74dd
+		summarizeBy: none
+		sourceColumn: Cód Defeito
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescriçãoDefeito
+		dataType: string
+		lineageTag: 1b374b01-e061-4ac6-ab82-62d00769ade5
+		summarizeBy: none
+		sourceColumn: DescriçãoDefeito
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Corrigido = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[SMART?],
+			        'Parametro Smarts'[REF_SMART], 
+			        'Defeitos'[Referência]
+			    ),
+			    "Tradicional"
+			)
+			```
+		lineageTag: 12334a4f-5722-4e48-b269-bec44ca9035d
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca_check =
+			
+			VAR Resultado_Parametro =
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[Marca_SKU],
+			        'Parametro Smarts'[REF_SMART],
+			        'Defeitos'[Referência]
+			    )
+			
+			VAR Resultado_OS =
+			    LOOKUPVALUE(
+			        'OS_Geral'[Marca],
+			        'OS_Geral'[Referência],
+			        'Defeitos'[Referência]
+			    )
+			
+			RETURN
+			    COALESCE(
+			        Resultado_Parametro,
+			        Resultado_OS
+			    )
+		lineageTag: 9daa8d40-4d17-4746-895b-df93e140029e
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano = YEAR(Defeitos[Data últimostatus])
+		formatString: 0
+		lineageTag: 265c4aff-c1a3-4479-8d78-14ca330ec93f
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês = MONTH('Defeitos'[Data últimostatus])
+		formatString: 0
+		lineageTag: f35a8a19-e78a-43d0-9655-300bf6ceec9f
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column27
+		dataType: string
+		lineageTag: 77bbe9a5-1e4b-4e9a-82f7-06a4f796c501
+		summarizeBy: none
+		sourceColumn: Column27
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Defeitos = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\OD_Defeito.xlsx"), null, true),
+				    Planilha1_Sheet = Fonte{[Item="OS_Defeitos",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Data de#(lf)entrada", type date}, {"Data#(lf)fabricação", type date}, {"Data#(lf)venda", type date}, {"Data último#(lf)status", type date}, {"OS", Int64.Type}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"OS"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Duplicatas Removidas", each ([OS] <> null and [OS] <> ""))
+				in
+				    #"Linhas Filtradas"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

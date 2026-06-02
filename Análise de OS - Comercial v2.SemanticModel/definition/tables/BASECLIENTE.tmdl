@@ -1,0 +1,116 @@
+table BASECLIENTE
+	lineageTag: 56fe8eeb-aa47-4842-abe9-5dcd560d1401
+
+	column Código
+		dataType: int64
+		formatString: 0
+		lineageTag: de0c8075-7a56-46ef-bbef-d1d6a2762881
+		summarizeBy: sum
+		sourceColumn: Código
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: 061f5b8b-732a-4aed-8509-31dcc8f462f3
+		summarizeBy: none
+		sourceColumn: Nome
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fisico Juridico'
+		dataType: string
+		lineageTag: fa92e275-453a-4eaa-94c2-c61d330c295c
+		summarizeBy: none
+		sourceColumn: Fisico Juridico
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJCPF
+		dataType: int64
+		formatString: 0
+		lineageTag: 1211e358-a9c8-42b2-a9f8-4634dfa886c6
+		summarizeBy: sum
+		sourceColumn: CNPJCPF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJNumPri
+		dataType: string
+		lineageTag: a5cbdb53-fc40-4657-bd81-89a2868de63d
+		summarizeBy: none
+		sourceColumn: CNPJNumPri
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: b10eab79-d89e-4c49-b59f-9cf14dd71aa9
+		summarizeBy: none
+		sourceColumn: UF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILIAL
+		dataType: string
+		lineageTag: 809a4d94-136c-4240-a057-ec672f29f4dd
+		summarizeBy: none
+		sourceColumn: FILIAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: 389e55c3-b519-4834-a668-294e009f0682
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPOLOGIA AGRUPADA'
+		dataType: string
+		lineageTag: c64c9a11-f461-431c-ac5e-8e7f7660456a
+		summarizeBy: none
+		sourceColumn: TIPOLOGIA AGRUPADA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BASECLIENTE = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\Base_Clientes.xlsx"), null, true),
+				    BASECLIENTE_Sheet = Fonte{[Item="BASECLIENTE",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(BASECLIENTE_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Código", Int64.Type}, {"Nome", type text}, {"Fisico Juridico", type text}, {"CNPJCPF", type text}, {"CNPJNumPri", type any}, {"UF", type text}, {"FILIAL", type text}, {"VENDEDOR", type text}, {"TIPOLOGIA AGRUPADA", type any}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado","/","",Replacer.ReplaceText,{"CNPJCPF"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","-","",Replacer.ReplaceText,{"CNPJCPF"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Valor Substituído1", {"CNPJCPF"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Duplicatas Removidas",{{"CNPJCPF", Int64.Type}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
