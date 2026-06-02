@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 444.04103201740753,
-    "z": 4000,
+    "z": 5000,
     "height": 75.916692570718055,
     "width": 161.86011812247435,
     "tabOrder": 2000
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "QUERY - Conclusão BUR"
+                      "Entity": "Conclusão BUR"
                     }
                   },
                   "Property": "SEGMENTACAO"
@@ -169,7 +169,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "QUERY - Conclusão BUR"
+                "Entity": "Conclusão BUR"
               }
             },
             "Property": "SEGMENTACAO"
@@ -181,7 +181,7 @@
           "From": [
             {
               "Name": "q",
-              "Entity": "QUERY - Conclusão BUR",
+              "Entity": "Conclusão BUR",
               "Type": 0
             }
           ],

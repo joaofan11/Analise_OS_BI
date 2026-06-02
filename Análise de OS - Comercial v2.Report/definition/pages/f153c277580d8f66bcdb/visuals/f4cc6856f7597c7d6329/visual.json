@@ -17,24 +17,13 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Calendario"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "Date"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
+                    "SourceRef": {
+                      "Entity": "Calendario"
                     }
                   },
-                  "Level": "Mês"
+                  "Property": "Date"
                 }
               },
               "queryRef": "Calendario.Date.Variation.Hierarquia de datas.Mês",
@@ -103,24 +92,13 @@
                       "filterExpressionMetadata": {
                         "expressions": [
                           {
-                            "HierarchyLevel": {
+                            "Column": {
                               "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "PropertyVariationSource": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "Calendario"
-                                        }
-                                      },
-                                      "Name": "Variation",
-                                      "Property": "Date"
-                                    }
-                                  },
-                                  "Hierarchy": "Hierarquia de datas"
+                                "SourceRef": {
+                                  "Entity": "Calendario"
                                 }
                               },
-                              "Level": "Mês"
+                              "Property": "Date"
                             }
                           }
                         ],
@@ -279,24 +257,13 @@
       {
         "name": "d96f1aaec6c5bab53e48",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Calendario"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "Date"
-                  }
-                },
-                "Hierarchy": "Hierarquia de datas"
+              "SourceRef": {
+                "Entity": "Calendario"
               }
             },
-            "Level": "Mês"
+            "Property": "Date"
           }
         },
         "type": "Categorical",
@@ -344,24 +311,13 @@
                 "filterExpressionMetadata": {
                   "expressions": [
                     {
-                      "HierarchyLevel": {
+                      "Column": {
                         "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "PropertyVariationSource": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "Calendario"
-                                  }
-                                },
-                                "Name": "Variation",
-                                "Property": "Date"
-                              }
-                            },
-                            "Hierarchy": "Hierarquia de datas"
+                          "SourceRef": {
+                            "Entity": "Calendario"
                           }
                         },
-                        "Level": "Mês"
+                        "Property": "Date"
                       }
                     }
                   ],

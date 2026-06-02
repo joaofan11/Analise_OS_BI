@@ -401,7 +401,7 @@ table Defeitos
 		mode: import
 		source =
 				let
-				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\OD_Defeito.xlsx"), null, true),
+				    Fonte = Excel.Workbook(File.Contents("T:\Departamental\PÓS VENDA\Laboratorio\Fornitura\KPI\Dashboard AST\Dashboard Technos\Bases QUERY - AST\OS_Defeito.xlsx"), null, true),
 				    Planilha1_Sheet = Fonte{[Item="OS_Defeitos",Kind="Sheet"]}[Data],
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha1_Sheet, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Data de#(lf)entrada", type date}, {"Data#(lf)fabricação", type date}, {"Data#(lf)venda", type date}, {"Data último#(lf)status", type date}, {"OS", Int64.Type}}),

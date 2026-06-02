@@ -4,7 +4,7 @@
   "position": {
     "x": 1.5906109768726266,
     "y": 209.96064894718674,
-    "z": 6000,
+    "z": 7000,
     "height": 74.758715913013461,
     "width": 160.6517086641353,
     "tabOrder": 3000
@@ -308,24 +308,13 @@
       {
         "name": "b1a8f69e0390200d9940",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Calendario"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "Date"
-                  }
-                },
-                "Hierarchy": "Hierarquia de datas"
+              "SourceRef": {
+                "Entity": "Calendario"
               }
             },
-            "Level": "Ano"
+            "Property": "Date"
           }
         },
         "type": "Categorical",
@@ -383,24 +372,13 @@
                 "filterExpressionMetadata": {
                   "expressions": [
                     {
-                      "HierarchyLevel": {
+                      "Column": {
                         "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "PropertyVariationSource": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "Calendario"
-                                  }
-                                },
-                                "Name": "Variation",
-                                "Property": "Date"
-                              }
-                            },
-                            "Hierarchy": "Hierarquia de datas"
+                          "SourceRef": {
+                            "Entity": "Calendario"
                           }
                         },
-                        "Level": "Ano"
+                        "Property": "Date"
                       }
                     }
                   ],
@@ -470,7 +448,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ]
   }

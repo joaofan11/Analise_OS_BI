@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 388.17780540876589,
-    "z": 10000,
+    "z": 11000,
     "height": 75.916692570718055,
     "width": 161.86011812247435,
     "tabOrder": 6000
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "QUERY - Conclusão BUR"
+                      "Entity": "Conclusão BUR"
                     }
                   },
                   "Property": "Marca_Entrada_Bur"
@@ -169,7 +169,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "QUERY - Conclusão BUR"
+                "Entity": "Conclusão BUR"
               }
             },
             "Property": "Marca_Entrada_Bur"
@@ -181,7 +181,7 @@
           "From": [
             {
               "Name": "q",
-              "Entity": "QUERY - Conclusão BUR",
+              "Entity": "Conclusão BUR",
               "Type": 0
             }
           ],

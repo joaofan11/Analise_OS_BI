@@ -265,7 +265,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo"
@@ -306,7 +306,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo"
@@ -348,7 +348,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo_Entrada"
@@ -390,7 +390,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo_Entrada"
@@ -432,7 +432,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo_Entrada"
@@ -631,7 +631,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo"
@@ -673,7 +673,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "QUERY - Conclusão BUR"
+                            "Entity": "Conclusão BUR"
                           }
                         },
                         "Property": "Tipo"
@@ -874,24 +874,13 @@
       {
         "name": "84a1efb2482eaacbc344",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Calendario"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "Date"
-                  }
-                },
-                "Hierarchy": "Hierarquia de datas"
+              "SourceRef": {
+                "Entity": "Calendario"
               }
             },
-            "Level": "Mês"
+            "Property": "Date"
           }
         },
         "type": "Categorical",
@@ -939,24 +928,13 @@
                 "filterExpressionMetadata": {
                   "expressions": [
                     {
-                      "HierarchyLevel": {
+                      "Column": {
                         "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "PropertyVariationSource": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "Calendario"
-                                  }
-                                },
-                                "Name": "Variation",
-                                "Property": "Date"
-                              }
-                            },
-                            "Hierarchy": "Hierarquia de datas"
+                          "SourceRef": {
+                            "Entity": "Calendario"
                           }
                         },
-                        "Level": "Mês"
+                        "Property": "Date"
                       }
                     }
                   ],

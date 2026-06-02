@@ -4,7 +4,7 @@
   "position": {
     "x": 613.06310226919493,
     "y": 408.23127137084236,
-    "z": 9000,
+    "z": 10000,
     "height": 296.5048181535592,
     "width": 290.77525645010877,
     "tabOrder": 5000
@@ -529,7 +529,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "QUERY - Conclusão BUR"
+                    "Entity": "Conclusão BUR"
                   }
                 },
                 "Property": "Total_defeitos_query"
@@ -541,7 +541,7 @@
                   "Measure": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "QUERY - Conclusão BUR"
+                        "Entity": "Conclusão BUR"
                       }
                     },
                     "Property": "Total_defeitos_query"

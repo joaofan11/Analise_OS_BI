@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "b4c6acec044861386d82",
+  "name": "899e043b0d10975753e0",
   "position": {
-    "x": 344.61538461538458,
-    "y": 68.461538461538453,
-    "z": 6000,
-    "height": 85.384615384615387,
-    "width": 120,
-    "tabOrder": 11000
+    "x": 223.45290643456636,
+    "y": 67.322350015542426,
+    "z": 29000,
+    "height": 85.943425551756292,
+    "width": 137.50948088281007,
+    "tabOrder": 28000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -22,18 +22,18 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "OS_Geral"
+                          "Entity": "Vendas_1"
                         }
                       },
-                      "Property": "Marca_Check_OS"
+                      "Property": "Quantidade"
                     }
                   },
-                  "Function": 5
+                  "Function": 0
                 }
               },
-              "queryRef": "Min(OS_Geral.Marca_Check_OS)",
-              "nativeQueryRef": "Entrada AST",
-              "displayName": "Entrada AST"
+              "queryRef": "Sum(Vendas_1.Quantidade)",
+              "nativeQueryRef": "Venda",
+              "displayName": "Venda"
             }
           ]
         }
@@ -47,13 +47,13 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "OS_Geral"
+                        "Entity": "Vendas_1"
                       }
                     },
-                    "Property": "Marca_Check_OS"
+                    "Property": "Quantidade"
                   }
                 },
-                "Function": 5
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -130,7 +130,7 @@
             }
           },
           "selector": {
-            "metadata": "Min(OS_Geral.Marca_Check_OS)"
+            "metadata": "Sum(Vendas_1.Quantidade)"
           }
         }
       ],

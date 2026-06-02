@@ -1,0 +1,228 @@
+table Vendas_1
+	lineageTag: 0dec8487-bd5c-4ea8-bb0a-d80a5734d944
+
+	column Referencia
+		dataType: string
+		lineageTag: 199b3701-aed3-432f-9247-8cd299b25a5f
+		summarizeBy: none
+		sourceColumn: Referencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataEmissao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3d0fbab6-ebaa-4ae4-8bc0-820c8d2fc366
+		summarizeBy: none
+		sourceColumn: DataEmissao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Quantidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 3867309a-f708-4194-a813-065b49d6b899
+		summarizeBy: sum
+		sourceColumn: Quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecoUnitario
+		dataType: double
+		lineageTag: 09e293ed-b359-437e-8117-7cd1529aeab8
+		summarizeBy: sum
+		sourceColumn: PrecoUnitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrecoLiquido
+		dataType: double
+		lineageTag: 13a8f39a-ea26-464f-955c-25e514b83848
+		summarizeBy: sum
+		sourceColumn: PrecoLiquido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DescricaoProduto
+		dataType: string
+		lineageTag: da7e6da8-ff27-4cd9-96b0-8a428da304c2
+		summarizeBy: none
+		sourceColumn: DescricaoProduto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Razao_Social_Cliente
+		dataType: string
+		lineageTag: b7baa306-dabc-49d5-8da8-ff724bf34b82
+		summarizeBy: none
+		sourceColumn: Razao_Social_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 1c7a79fc-08e8-4d7c-84eb-0b62db3b7372
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Filial_Nota
+		dataType: string
+		lineageTag: c1a57cc2-89a1-42bf-981c-581aaae0e859
+		summarizeBy: none
+		sourceColumn: Filial_Nota
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 07b906e8-e776-4eb7-b653-5faebba6d43e
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Municipio
+		dataType: string
+		lineageTag: 1d583dac-d85f-42d3-b229-3ced3beaca75
+		summarizeBy: none
+		sourceColumn: Municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecoLista
+		dataType: double
+		lineageTag: 835e49f7-970c-4199-b90e-294d4f137c1a
+		summarizeBy: sum
+		sourceColumn: PrecoLista
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalLiquido
+		dataType: double
+		lineageTag: 00a23fd4-cc78-498c-a0cb-d8ba272d4dde
+		summarizeBy: sum
+		sourceColumn: TotalLiquido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Linha
+		dataType: string
+		lineageTag: 92f6e6cf-4f19-4cb4-8327-2fff5a04d2a8
+		summarizeBy: none
+		sourceColumn: Linha
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ_Principal
+		dataType: string
+		lineageTag: 407874a5-edd8-4c41-bba1-44d26ed289e7
+		summarizeBy: none
+		sourceColumn: CNPJ_Principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Filial_Cliente
+		dataType: string
+		lineageTag: fa9bc99f-1861-473a-ace9-50dd69d468bc
+		summarizeBy: none
+		sourceColumn: Filial_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 454141aa-8aae-42dc-aecd-6cdb90cc38ca
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: c000a397-255c-4b9c-8691-1a95340b4113
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ
+		dataType: string
+		lineageTag: 3267b804-a363-4e4a-9b03-230bc49c62f8
+		summarizeBy: none
+		sourceColumn: CNPJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubLinhaX
+		dataType: string
+		lineageTag: e40de2ec-d751-4a31-bede-4b61aa3729a1
+		summarizeBy: none
+		sourceColumn: SubLinhaX
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome_Fantasia_Cliente
+		dataType: string
+		lineageTag: e39c33b7-01d8-4ba5-9b5d-544e5b24237c
+		summarizeBy: none
+		sourceColumn: Nome_Fantasia_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Codigo_Cliente
+		dataType: string
+		lineageTag: 509cf8e3-402b-431e-947b-4339421e153a
+		summarizeBy: none
+		sourceColumn: Codigo_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Check = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        'Parametro Smarts'[SMART?],
+			        'Parametro Smarts'[REF_SMART], 
+			        'Vendas_1'[Referencia]
+			    ),
+			    "Tradicional"
+			)
+			```
+		lineageTag: 1ced8e69-90c4-42c6-9a23-ca686ad406fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Vendas_1 = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\joaofernandes\Desktop\Projetos\AST\Base de Vendas no LTM - B2B Abril Fechado Fat Ref.xlsx"), null, true),
+				    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Tipo", type text}, {"Referencia", type text}, {"Empresa", type text}, {"DataEmissao", type date}, {"Codigo_Cliente", type text}, {"NotaFiscal", Int64.Type}, {"FreteRef", type number}, {"Quantidade", Int64.Type}, {"PrecoUnitario", type number}, {"PrecoLiquido", type number}, {"IPIRef", type number}, {"%IPIRef", type any}, {"%Desconto", type number}, {"DescricaoProduto", type text}, {"Razao_Social_Cliente", type text}, {"CodigoRep", Int64.Type}, {"Apelido", type text}, {"Cliente_Principal", type text}, {"PedidoInterno", type text}, {"Marca", type text}, {"Categoria", type text}, {"Filial_Nota", type text}, {"UF", type text}, {"Municipio", type text}, {"%Comissao", Int64.Type}, {"PrecoLista", type number}, {"TotalLiquido", type number}, {"TotalLiquidoAVP", type number}, {"Linha", type text}, {"Serie", Int64.Type}, {"Tipologia", type text}, {"GFilialTrad", type text}, {"GBrasilTrad", type text}, {"GFilialEuro", type text}, {"GBrasilEuro", type text}, {"TipoDemonstrativo", type text}, {"TipoProduto", type text}, {"CNPJ_Principal", type text}, {"CNPJNum_Principal", Int64.Type}, {"TipoDem", type any}, {"Codigo_Vendedor_Cliente", Int64.Type}, {"Nome_Vendedor_Cliente", type text}, {"Filial_Cliente", type text}, {"Ano", Int64.Type}, {"AnoMes", Int64.Type}, {"Mes", Int64.Type}, {"IPIRefAVP", type number}, {"CFOP", Int64.Type}, {"Codigo_Filial_Nota", Int64.Type}, {"TotalLista", type number}, {"CNPJ", type text}, {"Rodada", Int64.Type}, {"ImpostoRef", type number}, {"Nucleo", type text}, {"PrazoMedio", Int64.Type}, {"Indice", type number}, {"PedidosFaturados", Int64.Type}, {"CNPJColigacao", Int64.Type}, {"DiasPriVenc", Int64.Type}, {"NomeNucleo2", type text}, {"NomeNucleo1", type text}, {"Nucleo1ID", Int64.Type}, {"Nucleo2ID", Int64.Type}, {"MarcaID", Int64.Type}, {"GrupoX", type text}, {"SGrupoX", type text}, {"LinhaX", type text}, {"SubLinhaX", type text}, {"Numerador", type number}, {"QuantidadeDuplicata", Int64.Type}, {"FormaPagamento", type text}, {"CancDevol", type any}, {"NCM", Int64.Type}, {"ID", Int64.Type}, {"MemoPedido", type text}, {"FilialAgrupada", type text}, {"MesEstatistico", Int64.Type}, {"TemBrinde", type text}, {"GrupoTipologia", type text}, {"MotivoDevolucao", type any}, {"Potencial", type text}, {"NotaDevolucaoCliente", type any}, {"ClienteID", Int64.Type}, {"Transportadora", type text}, {"BrindeDinamico", type any}, {"QtdBrindeDinamico", type any}, {"Codigo_Cliente_Sem_Digito", Int64.Type}, {"%Desc_Dup", Int64.Type}, {"DataPedido", type date}, {"ChaveNota", type any}, {"PedidoProtheus", Int64.Type}, {"Nome_Fantasia_Cliente", type text}, {"NumeroPedidoOriginal", type any}, {"AliquotaICMS", Int64.Type}, {"AliquotaPIS", type number}, {"AliquotaCOFINS", type number}, {"AliquotaIPI", type number}, {"ValorICMS", type number}, {"ValorPIS", type number}, {"ValorCOFINS", type number}, {"ValorIPI", type number}, {"DescontoSuframa", Int64.Type}, {"ChaveNotaProtheus", type number}, {"Mês", Int64.Type}}),
+				    #"Consulta Acrescentada" = Table.Combine({#"Tipo Alterado", Vendas_2}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Consulta Acrescentada","/","",Replacer.ReplaceText,{"CNPJ"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","-","",Replacer.ReplaceText,{"CNPJ"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Valor Substituído1",{"Tipo", "Empresa", "NotaFiscal", "FreteRef", "IPIRef", "%IPIRef", "%Desconto", "CodigoRep", "Apelido", "Cliente_Principal", "PedidoInterno", "Categoria", "%Comissao", "TotalLiquidoAVP", "Serie", "GFilialTrad", "Tipologia", "GBrasilTrad", "GFilialEuro", "GBrasilEuro", "TipoDemonstrativo", "TipoProduto", "CNPJNum_Principal", "TipoDem", "Codigo_Vendedor_Cliente", "Nome_Vendedor_Cliente", "AnoMes", "IPIRefAVP", "CFOP", "Codigo_Filial_Nota", "TotalLista", "Rodada", "ImpostoRef", "Nucleo", "PrazoMedio", "Indice", "PedidosFaturados", "CNPJColigacao", "DiasPriVenc", "NomeNucleo2", "NomeNucleo1", "Nucleo1ID", "Nucleo2ID", "MarcaID", "GrupoX", "SGrupoX", "LinhaX", "Numerador", "QuantidadeDuplicata", "FormaPagamento", "CancDevol", "NCM", "ID", "MemoPedido", "FilialAgrupada", "MesEstatistico", "TemBrinde", "GrupoTipologia", "MotivoDevolucao", "Potencial", "NotaDevolucaoCliente", "ClienteID", "Transportadora", "BrindeDinamico", "QtdBrindeDinamico", "Codigo_Cliente_Sem_Digito", "%Desc_Dup", "DataPedido", "ChaveNota", "PedidoProtheus", "NumeroPedidoOriginal", "AliquotaICMS", "AliquotaPIS", "AliquotaCOFINS", "AliquotaIPI", "ValorICMS", "ValorPIS", "ValorCOFINS", "ValorIPI", "DescontoSuframa", "ChaveNotaProtheus", "Mês"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

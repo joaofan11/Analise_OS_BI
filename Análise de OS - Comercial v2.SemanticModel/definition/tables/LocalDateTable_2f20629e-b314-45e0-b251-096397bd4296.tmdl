@@ -97,7 +97,7 @@ table LocalDateTable_2f20629e-b314-45e0-b251-096397bd4296
 
 	partition LocalDateTable_2f20629e-b314-45e0-b251-096397bd4296 = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('QUERY - Conclusão BUR'[DT ENTRADA])), 1, 1), Date(Year(MAX('QUERY - Conclusão BUR'[DT ENTRADA])), 12, 31))
+		source = Calendar(Date(Year(MIN('Conclusão BUR'[DT ENTRADA])), 1, 1), Date(Year(MAX('Conclusão BUR'[DT ENTRADA])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

@@ -10,7 +10,7 @@ table Calendario
 
 		variation Variation
 			isDefault
-			relationship: 3df331c7-c62b-4b38-b0be-c89a3af6022f
+			relationship: d84bd154-cc44-49e7-a420-3cb95ef4205a
 			defaultHierarchy: LocalDateTable_4214d5e2-deb1-47a2-8225-602b698f2cb6.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -60,7 +60,7 @@ table Calendario
 
 	partition Calendario = calculated
 		mode: import
-		source = CALENDAR(DATE(2024, 01,01), TODAY())
+		source = CALENDAR(DATE(2025, 01,01), TODAY())
 
 	annotation PBI_Id = ef52db49104444288313ce8d8874e92b
 

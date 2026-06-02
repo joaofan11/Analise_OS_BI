@@ -5,13 +5,13 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 18663113.75
+        "y": 22528780
       },
       "nodes": [
         {
           "location": {
             "x": 2935.4294159629972,
-            "y": 45067094.314493671
+            "y": 56665595.865366772
           },
           "nodeIndex": "Calendario",
           "nodeLineageTag": "5245d24d-d4f7-4701-bb07-b998d5b09f82",
@@ -23,21 +23,8 @@
         },
         {
           "location": {
-            "x": 2079.3187378778362,
-            "y": 45066681.724062368
-          },
-          "nodeIndex": "QUERY - Conclusão BUR",
-          "nodeLineageTag": "35728d24-80ff-45db-ab02-ab33179198e4",
-          "size": {
-            "height": 516.68497138796374,
-            "width": 234
-          },
-          "zIndex": 10
-        },
-        {
-          "location": {
             "x": 2657.7948168783241,
-            "y": 45066628.168976381
+            "y": 56665129.719849482
           },
           "nodeIndex": "OS_Geral",
           "nodeLineageTag": "25ef1f7f-7661-46cd-9024-fe5b30208a10",
@@ -50,7 +37,7 @@
         {
           "location": {
             "x": 3348.5120011122981,
-            "y": 45066489.915635467
+            "y": 56664991.466508567
           },
           "nodeIndex": "Defeitos",
           "nodeLineageTag": "53d087e1-d66c-4ae0-b4ff-fd6ae43551f6",
@@ -63,7 +50,7 @@
         {
           "location": {
             "x": 2970.1254219100174,
-            "y": 43089262.522728488
+            "y": 54687764.073601589
           },
           "nodeIndex": "Marca",
           "nodeLineageTag": "8a99f1eb-b17b-48e2-bca5-129c29b4c365",
@@ -76,7 +63,7 @@
         {
           "location": {
             "x": 3632.5120011122981,
-            "y": 42911092.273347721
+            "y": 54509593.824220821
           },
           "nodeIndex": "Tipo_Garantia",
           "size": {
@@ -88,7 +75,7 @@
         {
           "location": {
             "x": 3626.5120011122981,
-            "y": 42514504.325406432
+            "y": 54113005.876279533
           },
           "nodeIndex": "Parametro Smarts",
           "nodeLineageTag": "9a343c0e-8fd6-4c5b-b030-ffa50681aa38",
@@ -101,7 +88,7 @@
         {
           "location": {
             "x": 1837.1932632344619,
-            "y": 41828648.815119952
+            "y": 53427150.365993053
           },
           "nodeIndex": "Cadastro Produto",
           "nodeLineageTag": "f0c39341-0836-41c5-892e-f5fbf0c62456",
@@ -114,7 +101,7 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 40380952.943004712
+            "y": 51979454.493877813
           },
           "nodeIndex": "DimTipo",
           "size": {
@@ -126,7 +113,7 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 39411779.443843335
+            "y": 51010280.994716436
           },
           "nodeIndex": "Backlog BUR",
           "nodeLineageTag": "7bfd919c-0ade-4274-b214-f6313275d51c",
@@ -139,7 +126,7 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 34826906.494209811
+            "y": 46425408.045082912
           },
           "nodeIndex": "QUERY - PV",
           "nodeLineageTag": "77d1b9ba-5237-4fdd-be47-3fba76bd46c6",
@@ -152,35 +139,9 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 32620335.468554493
-          },
-          "nodeIndex": "SMART RESUMO",
-          "nodeLineageTag": "f2ead9a0-c399-4ba1-9865-838934d181e2",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2079.3187378778362,
-            "y": 30060411.513483528
+            "y": 38547103.352871835
           },
           "nodeIndex": "Clientes",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2079.3187378778362,
-            "y": 26948601.801998734
-          },
-          "nodeIndex": "BASECLIENTE",
-          "nodeLineageTag": "56fe8eeb-aa47-4842-abe9-5dcd560d1401",
           "size": {
             "height": 296,
             "width": 234
@@ -190,7 +151,7 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 23197003.1017462
+            "y": 34795504.6526193
           },
           "nodeIndex": "TD - ESTADO_FILIAL",
           "size": {
@@ -202,10 +163,22 @@
         {
           "location": {
             "x": 2079.3187378778362,
-            "y": 18667329.973622467
+            "y": 56665183.274935469
           },
-          "nodeIndex": "BASE_VENDAS_LTM",
-          "nodeLineageTag": "9035835d-6233-4783-870b-ba7dd5d51454",
+          "nodeIndex": "Conclusão BUR",
+          "size": {
+            "height": 516.68497138796374,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2079.3187378778362,
+            "y": 22533497.157246836
+          },
+          "nodeIndex": "Vendas_1",
+          "nodeLineageTag": "0dec8487-bd5c-4ea8-bb0a-d80a5734d944",
           "size": {
             "height": 300,
             "width": 234

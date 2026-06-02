@@ -4,7 +4,7 @@
   "position": {
     "x": 180.19038465093067,
     "y": 408.83532651891829,
-    "z": 23000,
+    "z": 24000,
     "height": 280.12790891111069,
     "width": 433.06260512744677,
     "tabOrder": 23000
@@ -20,14 +20,30 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Clientes"
+                      "Entity": "Vendas_1"
                     }
                   },
-                  "Property": "Cliente"
+                  "Property": "Nome_Fantasia_Cliente"
                 }
               },
-              "queryRef": "Clientes.Cliente",
-              "nativeQueryRef": "Cliente"
+              "queryRef": "Vendas_1.Nome_Fantasia_Cliente",
+              "nativeQueryRef": "Cliente",
+              "displayName": "Cliente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vendas_1"
+                    }
+                  },
+                  "Property": "Codigo_Cliente"
+                }
+              },
+              "queryRef": "Vendas_1.Codigo_Cliente",
+              "nativeQueryRef": "Código Cliente",
+              "displayName": "Código Cliente"
             },
             {
               "field": {
@@ -56,7 +72,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "QUERY - Conclusão BUR"
+                          "Entity": "Conclusão BUR"
                         }
                       },
                       "Property": "LT Troca"
@@ -71,23 +87,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Clientes"
-                  }
-                },
-                "Property": "Cliente"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
@@ -104,20 +103,6 @@
           },
           "selector": {
             "metadata": "Análise.% Defeito"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "256.9928278548571D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Clientes.Cliente"
           }
         },
         {
@@ -146,6 +131,34 @@
           },
           "selector": {
             "metadata": "Sum(QUERY - Conclusão BUR.LT Troca)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "162.22933612512122D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Vendas_1.Nome_Fantasia_Cliente"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.44444013861279D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Vendas_1.Codigo_Cliente"
           }
         }
       ],
@@ -338,246 +351,8 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c312248e9b8f1e4bd776",
-        "ordinal": 0,
-        "field": {
-          "Arithmetic": {
-            "Left": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Análise"
-                  }
-                },
-                "Property": "% Defeito"
-              }
-            },
-            "Right": {
-              "ScopedEval": {
-                "Expression": {
-                  "Measure": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Análise"
-                      }
-                    },
-                    "Property": "% Defeito"
-                  }
-                },
-                "Scope": []
-              }
-            },
-            "Operator": 3
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "d62cb010a5c364243dba",
-        "ordinal": 1,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Análise"
-              }
-            },
-            "Property": "Desc"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "6ba66054ec29bcec00a2",
-        "ordinal": 2,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "OS_Geral"
-              }
-            },
-            "Property": "filial"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "o",
-              "Entity": "OS_Geral",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "o"
-                              }
-                            },
-                            "Property": "filial"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Cliente não encontrado na base'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'CPF'"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "6246faf7c288d6b87621",
-        "ordinal": 3,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "OS_Geral"
-              }
-            },
-            "Property": "Status Atual"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        }
-      },
-      {
-        "name": "e780d4aaa5bbfa0585d0",
-        "ordinal": 4,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Análise"
-              }
-            },
-            "Property": "Qtd_defeitos"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "b466b1c9ac1ae05a0685",
-        "ordinal": 5,
-        "field": {
-          "Arithmetic": {
-            "Left": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "QUERY - Conclusão BUR"
-                  }
-                },
-                "Property": "Total_defeitos_query"
-              }
-            },
-            "Right": {
-              "ScopedEval": {
-                "Expression": {
-                  "Measure": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "QUERY - Conclusão BUR"
-                      }
-                    },
-                    "Property": "Total_defeitos_query"
-                  }
-                },
-                "Scope": []
-              }
-            },
-            "Operator": 3
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "def6e21f5009b6d08ed9",
-        "ordinal": 6,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Clientes"
-              }
-            },
-            "Property": "Cliente"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "a9b423b9070a404d734e",
-        "ordinal": 7,
+        "ordinal": 0,
         "field": {
           "Aggregation": {
             "Expression": {
@@ -597,14 +372,14 @@
       },
       {
         "name": "bd04e8b713aac60a3aeb",
-        "ordinal": 8,
+        "ordinal": 1,
         "field": {
           "Aggregation": {
             "Expression": {
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "QUERY - Conclusão BUR"
+                    "Entity": "Conclusão BUR"
                   }
                 },
                 "Property": "LT Troca"
@@ -614,6 +389,135 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "2e45507968b9a81bee62",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Vendas_1"
+              }
+            },
+            "Property": "Nome_Fantasia_Cliente"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "v",
+              "Entity": "Vendas_1",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "v"
+                              }
+                            },
+                            "Property": "Nome_Fantasia_Cliente"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "''"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'*****'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'******'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'*******'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'********'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'*********'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'**********'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'***********'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'************'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
     "filterSortOrder": "Custom"

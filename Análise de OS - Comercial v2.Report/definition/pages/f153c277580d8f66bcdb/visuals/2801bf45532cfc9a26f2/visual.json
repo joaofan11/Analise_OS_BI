@@ -17,24 +17,13 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "PropertyVariationSource": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Calendario"
-                            }
-                          },
-                          "Name": "Variation",
-                          "Property": "Date"
-                        }
-                      },
-                      "Hierarchy": "Hierarquia de datas"
+                    "SourceRef": {
+                      "Entity": "Calendario"
                     }
                   },
-                  "Level": "Ano"
+                  "Property": "Date"
                 }
               },
               "queryRef": "Calendario.Date.Variation.Hierarquia de datas.Ano",
@@ -48,24 +37,13 @@
         "sort": [
           {
             "field": {
-              "HierarchyLevel": {
+              "Column": {
                 "Expression": {
-                  "Hierarchy": {
-                    "Expression": {
-                      "PropertyVariationSource": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "Calendario"
-                          }
-                        },
-                        "Name": "Variation",
-                        "Property": "Date"
-                      }
-                    },
-                    "Hierarchy": "Hierarquia de datas"
+                  "SourceRef": {
+                    "Entity": "Calendario"
                   }
                 },
-                "Level": "Ano"
+                "Property": "Date"
               }
             },
             "direction": "Ascending"
@@ -132,24 +110,13 @@
                       "filterExpressionMetadata": {
                         "expressions": [
                           {
-                            "HierarchyLevel": {
+                            "Column": {
                               "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "PropertyVariationSource": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "Calendario"
-                                        }
-                                      },
-                                      "Name": "Variation",
-                                      "Property": "Date"
-                                    }
-                                  },
-                                  "Hierarchy": "Hierarquia de datas"
+                                "SourceRef": {
+                                  "Entity": "Calendario"
                                 }
                               },
-                              "Level": "Ano"
+                              "Property": "Date"
                             }
                           }
                         ],
@@ -308,24 +275,13 @@
       {
         "name": "b1a8f69e0390200d9940",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Calendario"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "Date"
-                  }
-                },
-                "Hierarchy": "Hierarquia de datas"
+              "SourceRef": {
+                "Entity": "Calendario"
               }
             },
-            "Level": "Ano"
+            "Property": "Date"
           }
         },
         "type": "Categorical",
@@ -383,24 +339,13 @@
                 "filterExpressionMetadata": {
                   "expressions": [
                     {
-                      "HierarchyLevel": {
+                      "Column": {
                         "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "PropertyVariationSource": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "Calendario"
-                                  }
-                                },
-                                "Name": "Variation",
-                                "Property": "Date"
-                              }
-                            },
-                            "Hierarchy": "Hierarquia de datas"
+                          "SourceRef": {
+                            "Entity": "Calendario"
                           }
                         },
-                        "Level": "Ano"
+                        "Property": "Date"
                       }
                     }
                   ],

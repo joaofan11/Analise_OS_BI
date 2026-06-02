@@ -4,7 +4,7 @@
   "position": {
     "x": 0,
     "y": 275.17569899896444,
-    "z": 11000,
+    "z": 12000,
     "height": 84.302381774249213,
     "width": 160.6517086641353,
     "tabOrder": 8000
@@ -176,24 +176,13 @@
       {
         "name": "d96f1aaec6c5bab53e48",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Calendario"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "Date"
-                  }
-                },
-                "Hierarchy": "Hierarquia de datas"
+              "SourceRef": {
+                "Entity": "Calendario"
               }
             },
-            "Level": "Mês"
+            "Property": "Date"
           }
         },
         "type": "Categorical",
@@ -241,24 +230,13 @@
                 "filterExpressionMetadata": {
                   "expressions": [
                     {
-                      "HierarchyLevel": {
+                      "Column": {
                         "Expression": {
-                          "Hierarchy": {
-                            "Expression": {
-                              "PropertyVariationSource": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "Calendario"
-                                  }
-                                },
-                                "Name": "Variation",
-                                "Property": "Date"
-                              }
-                            },
-                            "Hierarchy": "Hierarquia de datas"
+                          "SourceRef": {
+                            "Entity": "Calendario"
                           }
                         },
-                        "Level": "Mês"
+                        "Property": "Date"
                       }
                     }
                   ],
@@ -301,6 +279,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {

@@ -4,7 +4,7 @@
   "position": {
     "x": 909.82947877114248,
     "y": 408.78702105626508,
-    "z": 12000,
+    "z": 13000,
     "height": 279.94753192958228,
     "width": 341.98136002761476,
     "tabOrder": 9000
@@ -101,21 +101,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "OS_Geral"
-                      }
-                    },
-                    "Property": "DEFEITO"
+                  "SourceRef": {
+                    "Entity": "OS_Geral"
                   }
                 },
-                "Function": 5
+                "Property": "DEFEITO"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -628,7 +623,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "QUERY - Conclusão BUR"
+                    "Entity": "Conclusão BUR"
                   }
                 },
                 "Property": "Total_defeitos_query"
@@ -640,7 +635,7 @@
                   "Measure": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "QUERY - Conclusão BUR"
+                        "Entity": "Conclusão BUR"
                       }
                     },
                     "Property": "Total_defeitos_query"

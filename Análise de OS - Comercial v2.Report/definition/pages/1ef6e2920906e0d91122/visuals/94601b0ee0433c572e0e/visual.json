@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "94601b0ee0433c572e0e",
   "position": {
-    "x": 4.2971712775878146,
-    "y": 508.49860118122473,
+    "x": 0,
+    "y": 500,
     "z": 27000,
-    "height": 75.916692570718055,
-    "width": 161.86011812247435,
-    "tabOrder": 27000
+    "height": 76.25,
+    "width": 162.5,
+    "tabOrder": 26000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "OS_Geral"
+                      "Entity": "Vendas_1"
                     }
                   },
-                  "Property": "filial"
+                  "Property": "Filial_Cliente"
                 }
               },
-              "queryRef": "OS_Geral.filial",
+              "queryRef": "Vendas_1.Filial_Cliente",
               "nativeQueryRef": "Filial",
               "active": true,
               "displayName": "Filial"
@@ -169,7 +169,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "QUERY - Conclusão BUR"
+                "Entity": "Conclusão BUR"
               }
             },
             "Property": "SEGMENTACAO"
@@ -181,7 +181,7 @@
           "From": [
             {
               "Name": "q",
-              "Entity": "QUERY - Conclusão BUR",
+              "Entity": "Conclusão BUR",
               "Type": 0
             }
           ],
@@ -299,6 +299,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {

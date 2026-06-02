@@ -91,7 +91,7 @@ table OS_Geral
 	measure 'Percentual de Trocas' = ```
 			
 			DIVIDE(
-			    SUM('QUERY - Conclusão BUR'[Flag_Check_BUR]),
+			    SUM('Conclusão BUR'[Flag_Check_BUR]),
 			    SUM('OS_Geral'[Flag_Check_OS])
 			)
 			
@@ -119,12 +119,12 @@ table OS_Geral
 			    
 			    -- Propaga o filtro de SEGMENTAÇÃO corretamente
 			    TREATAS(
-			        VALUES('QUERY - Conclusão BUR'[SEGMENTACAO]),
+			        VALUES('Conclusão BUR'[SEGMENTACAO]),
 			        OS_Geral[Garantia Fora Estoque]
 			    ),
 			
 			    -- REMOVE APENAS as colunas que causam interferência
-			    REMOVEFILTERS('QUERY - Conclusão BUR'[SEGMENTACAO])
+			    REMOVEFILTERS('Conclusão BUR'[SEGMENTACAO])
 			)
 			```
 		formatString: 0
@@ -135,16 +135,16 @@ table OS_Geral
 	measure 'Entrada troca teste 2' = ```
 			
 			CALCULATE(
-			    SUM('QUERY - Conclusão BUR'[Flag_Check_BUR]),
+			    SUM('Conclusão BUR'[Flag_Check_BUR]),
 			    
 			    -- Propaga o filtro de SEGMENTAÇÃO corretamente
 			    TREATAS(
 			        VALUES('OS_Geral'[Garantia Fora Estoque]),
-			        'QUERY - Conclusão BUR'[SEGMENTACAO]
+			        'Conclusão BUR'[SEGMENTACAO]
 			    ),
 			
 			    -- REMOVE APENAS as colunas que causam interferência
-			    REMOVEFILTERS('QUERY - Conclusão BUR'[SEGMENTACAO])
+			    REMOVEFILTERS('Conclusão BUR'[SEGMENTACAO])
 			)
 			```
 		formatString: 0
@@ -156,8 +156,8 @@ table OS_Geral
 			
 			VAR TotalTroca =
 			    CALCULATE(
-			        COUNTROWS('QUERY - Conclusão BUR'),
-			        'QUERY - Conclusão BUR'[Flag_Check_BUR] = 1
+			        COUNTROWS('Conclusão BUR'),
+			        'Conclusão BUR'[Flag_Check_BUR] = 1
 			    )
 			
 			VAR Concluido =
@@ -178,8 +178,8 @@ table OS_Geral
 			
 			VAR TotalTroca =
 			    CALCULATE(
-			        COUNTROWS('QUERY - Conclusão BUR'),
-			        'QUERY - Conclusão BUR'[Flag_Check_BUR] = 1
+			        COUNTROWS('Conclusão BUR'),
+			        'Conclusão BUR'[Flag_Check_BUR] = 1
 			    )
 			
 			VAR Concluido =
@@ -400,7 +400,7 @@ table OS_Geral
 		dataType: int64
 		formatString: 0
 		lineageTag: 1dcb1afc-c89a-4d78-b9dc-8048cbe5bc53
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CNPJ CPF CLIENTES
 
 		changedProperty = IsHidden
@@ -548,8 +548,8 @@ table OS_Geral
 			
 			COALESCE(
 			    LOOKUPVALUE(
-			        BASECLIENTE[FILIAL],
-			        BASECLIENTE[CNPJCPF], 
+			        Clientes[FILIAL],
+			        Clientes[CNPJCPF], 
 			        OS_Geral[CNPJ CPF CLIENTES]
 			    ),
 			    "CPF"

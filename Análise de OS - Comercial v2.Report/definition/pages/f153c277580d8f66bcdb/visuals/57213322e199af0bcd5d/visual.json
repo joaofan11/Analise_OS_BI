@@ -168,7 +168,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "QUERY - Conclusão BUR"
+                "Entity": "Conclusão BUR"
               }
             },
             "Property": "SEGMENTACAO"
@@ -180,7 +180,7 @@
           "From": [
             {
               "Name": "q",
-              "Entity": "QUERY - Conclusão BUR",
+              "Entity": "Conclusão BUR",
               "Type": 0
             }
           ],

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "dae580cab9d9a102a089",
+  "name": "59a3c2f7a80c1d160073",
   "position": {
-    "x": 173.33333333333334,
+    "x": 707.77777777777771,
     "y": 0,
-    "z": 4000,
+    "z": 0,
     "height": 62.222222222222221,
     "width": 572.22222222222217,
-    "tabOrder": 1000
+    "tabOrder": 30000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,13 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Histórico de Entradas na AST",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "DIN",
-                      "fontSize": "28pt",
-                      "color": "#ffffff"
-                    }
+                    "value": ""
                   }
                 ],
                 "horizontalTextAlignment": "center"
